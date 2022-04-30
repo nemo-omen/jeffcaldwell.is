@@ -1,0 +1,17 @@
+---
+  import TwitterMeta from './TwitterMeta.astro';
+  import OGMeta from './OGMeta.astro';
+  const {title, slug} = Astro.props;
+---
+
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="me" href="https://indieweb.social/web/@trainingmontage">
+  <link rel="me" href="https://twitter.com/trainingm0ntage">
+  <link rel="me" href="https://github.com/nemo-omen">
+  <link rel="canonical" href={'https://trainingmontage.dev/writing/' + slug}>
+
+  <title>{title}</title>
+</head>
