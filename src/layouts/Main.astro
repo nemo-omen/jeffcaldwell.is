@@ -1,0 +1,38 @@
+---
+import '../style/global.css';
+import BaseHead from './BaseHead.astro';
+import TwitterMeta from './TwitterMeta.astro';
+import OGMeta from './OGMeta.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { title } = Astro.props;
+const description = 'The personal site of Jeff Caldwell';
+const type = 'website';
+const image = Astro.canonicalURL + 'images/feature.jpg';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<BaseHead {title}>
+  <OGMeta
+    {title}
+    {description}
+    {type}
+    {image}
+  />
+  <TwitterMeta
+    {title}
+    {description}
+    {image}
+  />
+</BaseHead>
+
+<body>
+  <Header />
+  <main>
+	  <slot />
+  </main>
+  <Footer />
+</body>
+</html>

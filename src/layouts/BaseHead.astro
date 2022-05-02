@@ -1,0 +1,17 @@
+---
+  const { title } = Astro.props;
+  const canonical = Astro.canonicalURL;
+---
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="me" href="https://indieweb.social/web/@trainingmontage">
+  <link rel="me" href="https://twitter.com/trainingm0ntage">
+  <link rel="me" href="https://github.com/nemo-omen">
+  <link rel="canonical" href={canonical}>
+  <slot />
+  <title>{title}</title>
+
+</head>

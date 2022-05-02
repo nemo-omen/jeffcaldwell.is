@@ -1,7 +1,10 @@
 ---
-import Layout from '../components/Layout.astro';
-
+import Main from '../layouts/Main.astro';
+import PostListItem from '../components/PostListItem.astro';
+const posts = await Astro.glob('./writing/*/*.md');
 ---
-<Layout title="trainingmontage">
-
-</Layout>
+<Main title="trainingmontage">
+{posts.map((post) => (
+  <PostListItem {post} />
+))}
+</Main>
