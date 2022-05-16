@@ -216,6 +216,7 @@ background-color: var(--highlight);
   transition: background-color var(--transition-default);
   max-width: 25ch;
   padding-block: 0.75rem;
+  padding-inline: 0.5rem;
 }
 
 .feature-post-heading {
@@ -225,6 +226,7 @@ background-color: var(--highlight);
 .feature-post-date {
   display: block;
   text-align: center;
+  font-size: var(--font-size-500);
 }
 
 .feature-post-description {
