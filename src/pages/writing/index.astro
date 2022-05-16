@@ -1,0 +1,16 @@
+---
+import Main from '../../layouts/Main.astro';
+import PostListItem from '../../components/PostListItem.astro';
+import PostFeature from '../../components/PostFeature.astro';
+const posts = await Astro.glob('./*/*.md');
+const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+---
+
+  <Main title={"Writing — Jeff Caldwell"}>
+    <h2 class="page-heading" id="writing">Writing</h2>
+    <div class="post-grid">
+      {sorted.map((post) => (
+        <PostListItem {post} />
+      ))}
+    </div>
+  </Main>

@@ -287,7 +287,8 @@ background-color: var(--highlight);
     padding-inline: 5%;
     gap: 3.5rem;
   }
-  .page-heading, .feature-post-heading {
+  .page-heading,
+  .feature-post-heading {
     font-size: 5rem;
   }
 }
@@ -298,3 +299,12 @@ background-color: var(--highlight);
     gap: 4rem;
   }
 }
+
+/* @media screen and (prefers-color-scheme: dark) {
+  :root {
+    --foreground: var(--light);
+    --background: var(--dark);
+    --highlight: var(--red);
+    --accent: var(--yellow);
+  }
+} */
