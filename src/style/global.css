@@ -4,14 +4,49 @@
 
 :root {
   font-family: 'Atkinson Hyperlegible', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-size-300: 0.75rem;
+  /* --font-size-300: 0.75rem;
   --font-size-400: 1rem;
   --font-size-500: 1.25rem;
   --font-size-600: 1.5rem;
   --font-size-700: 1.75rem;
   --font-size-800: 2rem;
   --font-size-900: 2.25rem;
-  --font-size-1000: 2.5rem;
+  --font-size-1000: 2.5rem; */
+
+  --font-size--300: clamp(0.76rem, calc(0.76rem + 0.02vw), 0.77rem);
+  --font-size--200: clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
+  --font-size--100: clamp(1.09rem, calc(1.05rem + 0.21vw), 1.20rem);
+  --font-size-000: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
+  --font-size-100: clamp(1.58rem, calc(1.46rem + 0.59vw), 1.88rem);
+  --font-size-200: clamp(1.89rem, calc(1.71rem + 0.89vw), 2.34rem);
+  --font-size-300: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
+  --font-size-400: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
+  --font-size-500: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+  --font-size-600: clamp(3.92rem, calc(3.22rem + 3.52vw), 5.72rem);
+  --font-size-700: clamp(4.70rem, calc(3.75rem + 4.78vw), 7.15rem);
+
+  --space-3xs: clamp(0.31rem, calc(0.29rem + 0.12vw), 0.38rem);
+  --space-2xs: clamp(0.69rem, calc(0.66rem + 0.12vw), 0.75rem);
+  --space-xs: clamp(1.00rem, calc(0.95rem + 0.24vw), 1.13rem);
+  --space-s: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
+  --space-m: clamp(2.00rem, calc(1.90rem + 0.49vw), 2.25rem);
+  --space-l: clamp(2.63rem, calc(2.48rem + 0.73vw), 3.00rem);
+  --space-xl: clamp(3.94rem, calc(3.72rem + 1.10vw), 4.50rem);
+  --space-2xl: clamp(5.25rem, calc(4.96rem + 1.46vw), 6.00rem);
+  --space-3xl: clamp(7.88rem, calc(7.44rem + 2.20vw), 9.00rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.31rem, calc(0.14rem + 0.85vw), 0.75rem);
+  --space-2xs-xs: clamp(0.69rem, calc(0.52rem + 0.85vw), 1.13rem);
+  --space-xs-s: clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem);
+  --space-s-m: clamp(1.31rem, calc(0.95rem + 1.83vw), 2.25rem);
+  --space-m-l: clamp(2.00rem, calc(1.61rem + 1.95vw), 3.00rem);
+  --space-l-xl: clamp(2.63rem, calc(1.89rem + 3.66vw), 4.50rem);
+  --space-xl-2xl: clamp(3.94rem, calc(3.13rem + 4.02vw), 6.00rem);
+  --space-2xl-3xl: clamp(5.25rem, calc(3.79rem + 7.32vw), 9.00rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.31rem, calc(0.65rem + 3.29vw), 3.00rem);
 
 
   --light: #f0eff4;
@@ -31,14 +66,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size--000);
 }
 
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   justify-content: center;
-  gap: 2rem;
+  gap: var(--space-s-m);
   width: 100vw;
   height: 100vh;
   color: var(--foreground);
@@ -47,7 +82,7 @@ body {
 
 main,
 footer {
-  padding: 1rem;
+  padding: var(--space-xs);
 }
 
 header {
@@ -57,7 +92,7 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--space-s-m);
 }
 
 h1,
@@ -67,6 +102,11 @@ h4 {
   font-family: 'rebrandtxt-semibold';
   line-height: 0.9;
   margin: 0;
+}
+
+p {
+  font-size: var(--font-size-000);
+  line-height: 1.5;
 }
 
 :focus {
@@ -98,16 +138,18 @@ a:hover {
 }
 
 #site-brand h1 {
-  font-size: var(--font-size-900);
+  font-size: var(--font-size-200);
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
-#site-brand:focus h1, #site-brand:hover h1 {
+#site-brand:focus h1,
+#site-brand:hover h1 {
   color: var(--foreground);
   background-color: var(--highlight);
 }
 
-.heading-link:hover, .heading-link:focus {
+.heading-link:hover,
+.heading-link:focus {
   background: var(--highlight);
   color: var(--foreground);
   outline: 2px solid var(--outline);
@@ -191,10 +233,11 @@ background-color: var(--highlight);
 .post-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
-  gap: 2rem;
+  gap: var(--space-m-l);
 }
 
-.post-item-photo, .feature-post-photo {
+.post-item-photo, 
+.feature-post-photo {
   max-inline-size: 100%;
   block-size: auto;
   aspect-ratio: 2/1;
@@ -206,13 +249,14 @@ background-color: var(--highlight);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: var(--space-l);
 }
 
-.page-heading, .feature-post-heading {
-  font-size: 3rem;
+.page-heading,
+.feature-post-heading {
+  font-size: var(--font-size-200);
   font-family: 'rebranddis-semibold';
-  border-bottom: 0.5rem solid var(--foreground);
+  border-bottom: var(--space-3xs-2xs) solid var(--foreground);
   transition: background-color var(--transition-default);
   max-width: 25ch;
   padding-block: 0.75rem;
@@ -226,12 +270,13 @@ background-color: var(--highlight);
 .feature-post-date {
   display: block;
   text-align: center;
-  font-size: var(--font-size-500);
+  font-size: var(--font-size-100);
 }
 
 .feature-post-description {
-  font-size: var(--font-size-600);
+  font-size: var(--font-size-200);
   max-width: 50ch;
+  margin-top: 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -275,9 +320,10 @@ background-color: var(--highlight);
     border-bottom: 2px solid var(--foreground);
   }
 
-  .page-heading, .feature-post-heading {
-    font-size: 4rem;
-    border-bottom: 1rem solid var(--foreground);
+  .page-heading,
+  .feature-post-heading {
+    font-size: var(--font-size-400);
+    border-bottom: var(--space-3xs-2xs) solid var(--foreground);
     line-height: 1;
   }
 }
@@ -285,18 +331,18 @@ background-color: var(--highlight);
 @media screen and (min-width: 1024px) {
   body {
     padding-inline: 5%;
-    gap: 3.5rem;
+    gap: var(--space-l-xl);
   }
   .page-heading,
   .feature-post-heading {
-    font-size: 5rem;
+    font-size: var(--font-size-600);
   }
 }
 
 @media screen and (min-width: 1280px) {
   body {
     padding-inline: 20%;
-    gap: 4rem;
+    gap: var(--space-xl-2xl);
   }
 }
 
@@ -306,5 +352,10 @@ background-color: var(--highlight);
     --background: var(--dark);
     --highlight: var(--red);
     --accent: var(--yellow);
+  }
+
+  .page-heading,
+  .feature-post-heading {
+    border-bottom: var(--space-3xs-2xs) solid var(--foreground);
   }
 } */

@@ -3,7 +3,7 @@ const {post} = Astro.props;
 ---
 
   <article class="post-preview h-entry">
-    <img class="u-photo post-item-photo" src={post.frontmatter.featuredImage} width="300" />
+    <img class="u-photo post-item-photo" src={post.frontmatter.featuredImage} width="700" />
     <h2 class="p-name post-item-heading">{post.frontmatter.title}</h2>
     <time class="dt-published post-item-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
     <p class="p-summary post-item-description">{post.frontmatter.description}</p>
