@@ -9,7 +9,7 @@ const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new 
   <PostFeature post={sorted[0]} />
 
 <a href="/writing" class="heading-link">
-  <h2 class="page-heading" id="latest">More Posts</h2>
+  <h2 class="page-heading" id="latest">More Writing</h2>
 </a>
 <div class="post-grid">
   {sorted.slice(1, sorted.length).map((post) => (

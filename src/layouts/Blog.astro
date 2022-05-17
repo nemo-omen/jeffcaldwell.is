@@ -3,7 +3,21 @@
 const {content} = Astro.props;
 ---
 <Main title={`${content.title} | trainingmontage`}>
-  <h2>{content.title}</h2>
-  <time>{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
-  <slot />
+  <div class="blog-content entry">
+    <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo"/>
+    <h2 class="page-heading">{content.title}</h2>
+    <time>{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
+    <slot />
+  </div>
 </Main>
+
+<style>
+ .blog-content > * + * {
+   margin-top: var(--space-xl);
+ }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+</style>
