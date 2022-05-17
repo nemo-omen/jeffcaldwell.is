@@ -1,7 +1,7 @@
 ---
-title: 'A mighty test post'
+title: 'In the Weeds'
 slug: 'test'
-featuredImage: 'images/feature.jpg'
+featuredImage: 'images/someguy.jpg'
 date: 2022-04-30 07:24:26
 layout: ../../../layouts/Blog.astro
 description: "Sometimes it's good to have a bit of placeholder text you can use so that your designs seem to take up the space they need to."

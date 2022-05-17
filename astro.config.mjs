@@ -5,5 +5,5 @@ import svelte from '@astrojs/svelte';
 export default defineConfig({
    adapter: vercel(),
    integrations: [svelte()],
-   site: 'https://trainingmontage.dev'
+   site: 'https://jeffcaldwell.is'
 });

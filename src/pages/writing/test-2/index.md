@@ -1,7 +1,7 @@
 ---
-title: 'In the weeds'
+title: 'Fun with Sets'
 slug: 'test-2'
-featuredImage: '/images/someguy.png'
+featuredImage: '/images/rockhead.png'
 date: 2022-05-16 21:29:17
 layout: ../../../layouts/Blog.astro
 description: "Sometimes it's good to have a bit of placeholder text you can use so that your designs seem to take up the space they need to."

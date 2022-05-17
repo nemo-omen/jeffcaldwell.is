@@ -1,7 +1,7 @@
 ---
-title: 'Fun with sets'
+title: 'Wayfinding'
 slug: 'test-3'
-featuredImage: '/images/rockhead.png'
+featuredImage: '/images/wayfinding.png'
 date: 2022-05-16 21:29:32
 layout: ../../../layouts/Blog.astro
 description: "Sometimes it's good to have a bit of placeholder text you can use so that your designs seem to take up the space they need to."

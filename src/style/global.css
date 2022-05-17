@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -277,6 +279,12 @@ background-color: var(--highlight);
   font-size: var(--font-size-200);
   max-width: 50ch;
   margin-top: 0;
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s-m);
 }
 
 @media screen and (min-width: 700px) {

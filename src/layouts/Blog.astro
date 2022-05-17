@@ -1,23 +1,40 @@
 ---
+  import '../style/global.css';
   import Main from './Main.astro';
+  import BaseHead from './BaseHead.astro';
+  import TwitterMeta from './TwitterMeta.astro';
+  import OGMeta from './OGMeta.astro';
+  import Header from '../components/Header.astro';
+  import Footer from '../components/Footer.astro';
 const {content} = Astro.props;
 ---
-<Main title={`${content.title} | trainingmontage`}>
-  <div class="blog-content entry">
+<!DOCTYPE html>
+<html lang="en">
+
+<BaseHead {content.title}>
+  <OGMeta
+    title={content.title}
+    description={content.description}
+    type="article"
+    image={'https://jeffcaldwell.is' + content.featuredImage}
+  />
+  <TwitterMeta
+    title={content.title}
+    description={content.description}
+    image={'https://jeffcaldwell.is' + content.featuredImage}
+  />
+</BaseHead>
+
+<body>
+  <Header />
+  <main id="content">
+	  <div class="blog-content">
     <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo"/>
     <h2 class="page-heading">{content.title}</h2>
     <time>{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
     <slot />
   </div>
-</Main>
-
-<style>
- .blog-content > * + * {
-   margin-top: var(--space-xl);
- }
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
-</style>
+  </main>
+  <Footer />
+</body>
+</html>
