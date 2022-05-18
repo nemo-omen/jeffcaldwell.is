@@ -131,6 +131,10 @@ a:hover {
   color: var(--accent);
 }
 
+.flow > * + * {
+  margin-top: var(--space-s-m);
+}
+
 #site-brand {
   font-family: 'rebrandtxt-semibold';
   transition: background-color var(--transition-default);

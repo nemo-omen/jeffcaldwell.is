@@ -1,16 +1,16 @@
 ---
   import '../style/global.css';
-  import Main from './Main.astro';
+  import JsonLD from '../components/JsonLD.astro';
   import BaseHead from './BaseHead.astro';
   import TwitterMeta from './TwitterMeta.astro';
   import OGMeta from './OGMeta.astro';
   import Header from '../components/Header.astro';
   import Footer from '../components/Footer.astro';
-const {content} = Astro.props;
+  const {content} = Astro.props;
+  console.log(content);
 ---
 <!DOCTYPE html>
 <html lang="en">
-
 <BaseHead {content.title}>
   <OGMeta
     title={content.title}
@@ -23,17 +23,22 @@ const {content} = Astro.props;
     description={content.description}
     image={'https://jeffcaldwell.is' + content.featuredImage}
   />
+
+  <JsonLD {content} />
+
 </BaseHead>
 
 <body>
   <Header />
-  <main id="content">
-	  <div class="blog-content">
+  <main>
+	  <article class="h-entry blog-content">
     <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo"/>
-    <h2 class="page-heading">{content.title}</h2>
-    <time>{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
-    <slot />
-  </div>
+    <h2 class="p-name page-heading">{content.title}</h2>
+    <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
+    <div class="e-content flow">
+      <slot />
+    </div>
+  </article>
   </main>
   <Footer />
 </body>

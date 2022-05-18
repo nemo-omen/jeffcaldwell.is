@@ -1,0 +1,21 @@
+---
+const { content } = Astro.props;
+const scriptContent = `<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "${content.title}",
+      "image": "https://jeffcaldwell.is${content.featuredImage}",
+      "datePublished": "${content.date}",
+      "inLanguage": "en-US",
+      "contentLocation": {
+        "@type": "Person",
+        "name": "Jeff Caldwell",
+        "url": "https://jeffcaldwell.is",
+        "articleBody": "${content.astro.source}"
+      }
+    }
+  </script>`;
+---
+
+  <Fragment set:html={scriptContent} />
