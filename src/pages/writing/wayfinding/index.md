@@ -1,6 +1,6 @@
 ---
 title: 'Wayfinding'
-slug: 'test-3'
+slug: 'wayfinding'
 featuredImage: '/images/wayfinding.png'
 date: 2022-05-16 21:29:32
 layout: ../../../layouts/Blog.astro
@@ -15,4 +15,4 @@ Now, though, I'm a guy in his mid-40s getting a degree in computer science and m
 
 So I need to come up with a better way to study. That, dear reader, is where you come in.
 
-My plan is to study as intensively as I can and, ass a means of properly digesting the material, teaching it to you.
+My plan is to study as intensively as I can and, as a means of properly digesting the material, teaching it to you.
