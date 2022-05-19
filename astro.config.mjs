@@ -3,7 +3,7 @@ import vercel from '@astrojs/vercel';
 import svelte from '@astrojs/svelte';
 // https://astro.build/config
 export default defineConfig({
-   // adapter: vercel(),
+   adapter: vercel(),
    integrations: [svelte()],
    site: 'https://jeffcaldwell.is'
 });
