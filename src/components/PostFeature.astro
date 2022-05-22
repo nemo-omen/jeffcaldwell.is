@@ -2,11 +2,10 @@
 const {post} = Astro.props;
 ---
 
-  <article class="feature-post">
+  <article class="feature-post shadow border-radius">
     <img class="u-photo feature-post-photo" src={post.frontmatter.featuredImage} width="1000" height="500"/>
-    <a href={`/writing/${post.frontmatter.slug}`} class="heading-link">
-      <h2 class="p-name feature-post-heading">{post.frontmatter.title}</h2>
+    <a href={`${post.url}`} class="heading-link post-item-col">
+      <span class="p-name post-item-heading">{post.frontmatter.title}</span>
+      <time class="dt-published">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
     </a>
-    <time class="dt-published feature-post-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
-    <p class="p-summary feature-post-description">{post.frontmatter.description}</p>
   </article>

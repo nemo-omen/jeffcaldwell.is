@@ -1,4 +1,6 @@
 ---
+  import '../style/reset.css';
+  import '../style/global.css';
   const { title } = Astro.props;
   const canonical = Astro.canonicalURL;
 ---
@@ -14,11 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/Web Fonts/rebrandtext_black_macroman/stylesheet.css">
-  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/Web Fonts/rebrandtext_bold_macroman/stylesheet.css">
-  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/Web Fonts/rebrandtext_semibold_macroman/stylesheet.css">
-  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/Web Fonts/rebranddisplay_bold_macroman/stylesheet.css">
-  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/Web Fonts/rebranddisplay_semibold_macroman/stylesheet.css">
+  <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/stylesheet.css">
   <slot />
   <title>{title}</title>
 </head>

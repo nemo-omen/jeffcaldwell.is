@@ -4,17 +4,33 @@ import PostListItem from '../components/PostListItem.astro';
 import PostFeature from '../components/PostFeature.astro';
 const posts = await Astro.glob('./writing/*/*.md');
 const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
-console.log(Astro.request);
 ---
 <Main title="Jeff Caldwell — Web Developer">
-  <PostFeature post={sorted[0]} />
-
-<a href="/writing" class="heading-link">
-  <h2 class="page-heading" id="latest">More Writing</h2>
-</a>
-<div class="post-grid">
-  {sorted.slice(1, sorted.length).map((post) => (
-    <PostListItem {post} />
-  ))}
+<div class="page-grid">
+  <section class="content-list flow">
+        <h2 class="page-heading" id="latest">
+          <a href="/writing" class="heading-link">
+              Writing
+          </a>
+        </h2>
+    <div class="post-list flow">
+      {sorted.map((post) => (
+      <PostFeature {post} />
+        // <PostListItem {post} />
+      ))}
+    </div>
+  </section>
+  <section class="content-list flow">
+    <h2 class="page-heading" id="latest">
+      <a href="/writing" class="heading-link">
+        Garden
+      </a>
+    </h2>
+    <div class="post-list">
+      {sorted.map((post) => (
+        <PostListItem {post} />
+      ))}
+    </div>
+  </section>
 </div>
 </Main>

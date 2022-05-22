@@ -1,7 +1,7 @@
 ---
 title: 'Wayfinding'
 slug: 'wayfinding'
-featuredImage: '/images/wayfinding.png'
+featuredImage: '/images/orb.png'
 date: 2022-05-16 21:29:32
 layout: ../../../layouts/Blog.astro
 description: "I'm not really the best student and I never have been. I'm not the smartest person in the world but I've always been gifted with intelligence. In school, this meant that I was always able to skate by without much effort."

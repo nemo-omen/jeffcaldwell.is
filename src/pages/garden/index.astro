@@ -1,0 +1,13 @@
+---
+import Main from '../../layouts/Main.astro';
+import NoteLink from '../../components/NoteLink.astro';
+
+const posts = await Astro.glob('./notes/*/*.md');
+const sorted = posts.sort();
+---
+
+  <Main title="Garden — Jeff Caldwell">
+  <img class="page-image" src="/images/garden.png" alt="An illustration of a pot of soil with a spade partially buried into the soil inside." width="1404" height="1872">
+    <h2 class="page-heading">Garden</h2>
+    {sorted.map((note) => <NoteLink {note} />)}
+  </Main>
