@@ -10,7 +10,7 @@ const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new 
     <h2 class="page-heading" id="writing">Writing</h2>
     <div class="post-grid">
       {sorted.map((post) => (
-        <PostListItem {post} />
+        <PostFeature {post} />
       ))}
     </div>
   </Main>
