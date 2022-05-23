@@ -3,9 +3,9 @@ const {post} = Astro.props;
 ---
 
   <article class="feature-post shadow border-radius">
-    <img class="u-photo feature-post-photo" src={post.frontmatter.featuredImage} width="1000" height="500"/>
     <a href={`${post.url}`} class="heading-link post-item-col">
       <span class="p-name post-item-heading">{post.frontmatter.title}</span>
       <time class="dt-published">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
     </a>
+    <img class="u-photo feature-post-photo" src={post.frontmatter.featuredImage} width="1000" height="500"/>
   </article>

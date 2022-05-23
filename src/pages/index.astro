@@ -2,10 +2,15 @@
 import Main from '../layouts/Main.astro';
 import PostListItem from '../components/PostListItem.astro';
 import PostFeature from '../components/PostFeature.astro';
+import Intro from '../components/Intro.astro';
 const posts = await Astro.glob('./writing/*/*.md');
+const notes = await Astro.glob('./garden/*/*.md');
+
 const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const sortedNotes = notes.sort((a,b) => new Date(b.frontmatter.updated).valueOf() - new Date(a.frontmatter.updated).valueOf());
 ---
 <Main title="Jeff Caldwell — Web Developer">
+<Intro />
 <div class="page-grid">
   <section class="content-list flow">
         <h2 class="page-heading" id="latest">
@@ -27,7 +32,7 @@ const sorted = posts.sort((a,b) => new Date(b.frontmatter.date).valueOf() - new 
       </a>
     </h2>
     <div class="post-list">
-      {sorted.map((post) => (
+      {sortedNotes.slice(0, 5).map((post) => (
         <PostListItem {post} />
       ))}
     </div>
