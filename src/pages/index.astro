@@ -19,7 +19,7 @@ const sortedNotes = notes.sort((a,b) => new Date(b.frontmatter.updated).valueOf(
           </a>
         </h2>
     <div class="post-list flow">
-      {sorted.map((post) => (
+      {sorted.slice(0,2).map((post) => (
       <PostFeature {post} />
         // <PostListItem {post} />
       ))}

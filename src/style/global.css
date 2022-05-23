@@ -220,7 +220,7 @@ nav ol li a {
   transition: background-color var(--transition-default);
   letter-spacing: 0.125em;
   pointer-events: auto;
-  font-size: var(--font-size-000);
+  font-size: var(--font-size--100);
 }
 
 nav ol li:hover {
