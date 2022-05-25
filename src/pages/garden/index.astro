@@ -1,12 +1,21 @@
 ---
-import Main from '../../layouts/Main.astro';
-import NoteLink from '../../components/NoteLink.astro';
+  import Main from '../../layouts/Main.astro';
+  import NoteLink from '../../components/NoteLink.astro';
 
-const posts = await Astro.glob('./*/*.md');
-const sorted = posts.sort();
+  const posts = await Astro.glob('./*/*.md');
+  const everything = await Astro.glob('./**/*.md');
+  const sorted = everything.sort();
+  const rawPaths = everything.map((note) => note.url);
+  // let tree = {};
+  const pathsToTree = function (paths, tree) {
+
+  };
+
+  pathsToTree(rawPaths, {});
 ---
 
-  <Main title="Garden — Jeff Caldwell">
-    <h2 class="page-heading">Garden</h2>
-    {sorted.map((note) => <NoteLink {note} />)}
-  </Main>
+<Main title="Garden — Jeff Caldwell">
+  <h2 class="page-heading">Garden</h2>
+  {sorted.map((note) =>
+  <NoteLink {note} />)}
+</Main>
