@@ -8,4 +8,4 @@ description: 'Notes on Discrete Mathematics'
 featuredImage: ''
 ---
 
-## {frontmatter.title}
+[Sets](./sets)

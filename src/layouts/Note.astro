@@ -6,17 +6,51 @@
   import OGMeta from './OGMeta.astro';
   import Header from '../components/Header.astro';
   import Footer from '../components/Footer.astro';
+
   const { content } = Astro.props;
   const author = 'Jeff Caldwell';
+  let featuredImage;
+
+  // TODO - create a default garden featuredImage!
+  if (!content.hasOwnProperty('featuredImage')) {
+    featuredImage = 'https://jeffcaldwell.is/images/garden.png'; // better default featured image here!
+  } else {
+    featuredImage = content.featuredImage;
+  }
+
+  // 1. get all notes
+  // 2. loop through all of them and find
+  //    any instances of link text that matches
+  //    the current note's title
+
+  const allNotes = import.meta.glob('../pages/garden/**/*.md');
+
+  let notes = await Promise.all(
+    Object.entries(allNotes).map(async ([key, note]) => {
+      const url = key.replace('../pages/garden/', '/garden/').replace('/index', '').replace('.md', '/');
+      return note().then(async content => {
+        const source = await content.default();
+        console.log(source.frontmatter.astro);
+        return {
+          ...source.frontmatter,
+          url
+        }
+      })
+    })
+  );
+
+  notes = notes.filter(note => {
+    return note.astro.source.toLowerCase().includes(`[${content.title.toLowerCase()}]`);
+  });
+  // console.log(allNotes);
+  console.log(notes);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <BaseHead {content.title}>
-  <OGMeta title={content.title} description={content.description} type="article" image={content.featuredImage
-    ? 'https://jeffcaldwell.is' + content.featuredImage : 'https://jeffcaldwell.is/images/garden.png' } />
-  <TwitterMeta title={content.title} description={content.description} image={content.featuredImage
-    ? 'https://jeffcaldwell.is' + content.featuredImage : 'https://jeffcaldwell.is/images/garden.png' } />
+  <OGMeta title={content.title} description={content.description} type="article" image={featuredImage} />
+  <TwitterMeta title={content.title} description={content.description} image={featuredImage} />
 
   <JsonLD {content} />
 
@@ -26,11 +60,6 @@
   <Header />
   <main>
     <article class="h-entry blog-content">
-      {
-      content.featuredImage
-      ? `<img src=${content.featuredImage} width="1000" height="500 class=" featured-post-photo" />`
-      : ''
-      }
       <h2 class="p-name page-heading">{content.title}</h2>
       <p>
         <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
@@ -44,6 +73,17 @@
       <div class="e-content flow">
         <slot />
       </div>
+      { !notes.length ? null : <div class="mt-5">
+        <h2 class="mb-1 text-xl font-bold text-gray-400">Backlinks</h2>
+        <ul class="list-disc list-inside">
+          {notes.map(note => {
+          return <li class="mb-2">
+            <a href={`${note.url}`} class="text-accent-400">{note.title}</a>
+          </li>
+          })}
+        </ul>
+      </div>
+      }
     </article>
   </main>
   <Footer />
