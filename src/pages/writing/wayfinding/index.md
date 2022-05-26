@@ -3,6 +3,7 @@ title: 'Wayfinding'
 slug: 'wayfinding'
 featuredImage: '/images/wayfinding-phone.png'
 date: 2022-05-16 21:29:32
+updated: 2022-05-26 09:39:18
 layout: ../../../layouts/Blog.astro
 description: "I'm not really the best student and I never have been. I'm not the smartest person in the world but I've always been gifted with intelligence. In school, this meant that I was always able to skate by without much effort."
 author: Jeff Caldwell

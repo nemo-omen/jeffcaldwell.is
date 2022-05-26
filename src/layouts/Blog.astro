@@ -1,33 +1,40 @@
 ---
-  import JsonLD from '../components/JsonLD.astro';
-  import BaseHead from './BaseHead.astro';
-  import TwitterMeta from './TwitterMeta.astro';
-  import OGMeta from './OGMeta.astro';
-  import Header from '../components/Header.astro';
-  import Footer from '../components/Footer.astro';
-  const {content} = Astro.props;
-  let author;
+import JsonLD from '../components/JsonLD.astro';
+import BaseHead from './BaseHead.astro';
+import TwitterMeta from './TwitterMeta.astro';
+import OGMeta from './OGMeta.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { content } = Astro.props;
 
-  if (content.hasOwnProperty('author')) {
-    author = content.author;
-  } else {
-    author = 'Jeff Caldwell'
-  }
+const allNotes = import.meta.glob('../pages/writing/**/*.md');
+
+let notes = await Promise.all(
+  Object.entries(allNotes).map(async ([key, note]) => {
+    const url = key.replace('../pages/writing/', '/writing/').replace('/index', '').replace('.md', '/');
+    return note().then(async content => {
+      const source = await content.default();
+      // console.log(source.frontmatter.astro);
+      return {
+        ...source.frontmatter,
+        url
+      }
+    })
+  })
+);
+
+notes = notes.filter(note => {
+  return note.astro.source.toLowerCase().includes(`[${content.title.toLowerCase()}]`);
+});
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <BaseHead {content.title}>
-  <OGMeta
-    title={content.title}
-    description={content.description}
-    type="article"
-    image={'https://jeffcaldwell.is' + content.featuredImage}
-  />
-  <TwitterMeta
-    title={content.title}
-    description={content.description}
-    image={'https://jeffcaldwell.is' + content.featuredImage}
-  />
+  <OGMeta title={content.title} description={content.description} type="article" image={'https://jeffcaldwell.is' +
+    content.featuredImage} />
+  <TwitterMeta title={content.title} description={content.description} image={'https://jeffcaldwell.is' +
+    content.featuredImage} />
 
   <JsonLD {content} />
   <style>
@@ -43,19 +50,32 @@
 <body>
   <Header />
   <main>
-	  <article class="h-entry blog-content">
-    <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo"/>
-    <h2 class="p-name page-heading">{content.title}</h2>
-    <p>
-      <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: 'numeric', year: 'numeric'})}</time>
-      , by 
-      <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">{author}</a>
-    </p>
-    <div class="e-content flow">
-      <slot />
-    </div>
-  </article>
+    <article class="h-entry blog-content">
+      <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo" />
+      <h2 class="p-name page-heading">{content.title}</h2>
+      <p>
+        <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
+          day: 'numeric', year: 'numeric'})}</time>
+        , by
+        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">Jeff Caldwell</a>
+      </p>
+      <div class="e-content flow">
+        <slot />
+      </div>
+      { !notes.length ? null : <div>
+        <h2>Backlinks</h2>
+        <ul class="backlink-list">
+          {notes.map(note => {
+          return <li class="backlink-list-item">
+            <a href={`${note.url}`}>{note.title}</a>
+          </li>
+          })}
+        </ul>
+      </div>
+      }
+    </article>
   </main>
   <Footer />
 </body>
+
 </html>

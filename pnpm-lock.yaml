@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/svelte': ^0.1.2
@@ -86,7 +86,7 @@ packages:
     resolution: {integrity: sha512-rgi3g078uAxdb8jg1A5U8sNWMUQq7UXwHT7qmPiGOeB+h5p+tzUFy/Awq2suv99Tq8efpn3HrAGTuDvxyvbwfg==}
     dependencies:
       svelte: 3.47.0
-      svelte2tsx: 0.5.9_svelte@3.47.0+typescript@4.6.4
+      svelte2tsx: 0.5.9_xnf64rhacgemelcurd3uaqi2ei
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -100,7 +100,7 @@ packages:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.42_svelte@3.47.0+vite@2.9.6
       postcss-load-config: 3.1.4
       svelte: 3.47.0
-      svelte-preprocess: 4.10.6_752b810ab855973626d4335cb0788eac
+      svelte-preprocess: 4.10.6_ouvyccvykwltmjwugnola6eovq
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -279,6 +279,8 @@ packages:
     resolution: {integrity: sha512-n2Q6i+fnJqzOaq2VkdXxy2TCPCWQZHiCo0XqmrCvDWcZQKRyZzYi4Z0yxlBuN0w+r2ZHmre+Q087DSrw3pbJDQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.10
     dev: true
 
   /@babel/template/7.16.7:
@@ -3204,7 +3206,7 @@ packages:
       svelte: 3.47.0
     dev: true
 
-  /svelte-preprocess/4.10.6_752b810ab855973626d4335cb0788eac:
+  /svelte-preprocess/4.10.6_ouvyccvykwltmjwugnola6eovq:
     resolution: {integrity: sha512-I2SV1w/AveMvgIQlUF/ZOO3PYVnhxfcpNyGt8pxpUVhPfyfL/CZBkkw/KPfuFix5FJ9TnnNYMhACK3DtSaYVVQ==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -3259,7 +3261,7 @@ packages:
     resolution: {integrity: sha512-4JaJp3HEoTCGARRWZQIZDUanhYv0iyoHikklVHVLH9xFE9db22g4TDv7CPeNA8HD1JgjXI1vlhR1JZvvhaTu2Q==}
     engines: {node: '>= 8'}
 
-  /svelte2tsx/0.5.9_svelte@3.47.0+typescript@4.6.4:
+  /svelte2tsx/0.5.9_xnf64rhacgemelcurd3uaqi2ei:
     resolution: {integrity: sha512-xTDASjlh+rKo4QRhTRYSH87sS7fRoyX67xhGIMPKa3FYqftRHRmMes6nVgEskiuhBovslNHYYpMMg5YM5n/STg==}
     peerDependencies:
       svelte: ^3.24

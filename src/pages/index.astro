@@ -1,13 +1,11 @@
 ---
-  import Main from '../layouts/Main.astro';
-  import PostListItem from '../components/PostListItem.astro';
-  import PostFeature from '../components/PostFeature.astro';
-  import Intro from '../components/Intro.astro';
-  const posts = await Astro.glob('./writing/*/*.md');
-  const notes = await Astro.glob('./garden/*/*.md');
+import Main from '../layouts/Main.astro';
+import PostListItem from '../components/PostListItem.astro';
+import PostFeature from '../components/PostFeature.astro';
+import Intro from '../components/Intro.astro';
+let posts = await Astro.glob('./writing/*/*.md');
 
-  const sorted = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
-  const sortedNotes = notes.sort((a, b) => new Date(b.frontmatter.updated).valueOf() - new Date(a.frontmatter.updated).valueOf());
+const sorted = posts.sort((a, b) => new Date(b.frontmatter.updated).valueOf() - new Date(a.frontmatter.updated).valueOf());
 ---
 
 <Main title="Jeff Caldwell — Web Developer">
@@ -15,26 +13,11 @@
   <div class="page-grid">
     <section class="content-list flow">
       <h2 class="page-heading" id="latest">
-        <a href="/writing" class="heading-link">
-          Writing
-        </a>
+        Latest Writing
       </h2>
       <div class="post-list flow">
-        {sorted.slice(0,2).map((post) => (
-        <PostFeature {post} />
-        ))}
-      </div>
-    </section>
-    <section class="content-list flow">
-      <h2 class="page-heading" id="latest">
-        <a href="/garden" class="heading-link">
-          Garden
-        </a>
-      </h2>
-      <div class="post-list">
-        {sortedNotes.slice(0, 5).map((post) => (
-        <PostListItem {post} />
-        ))}
+        {sorted.slice(0, 4).map((post) => (
+        <PostFeature {post} />))}
       </div>
     </section>
   </div>
