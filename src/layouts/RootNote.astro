@@ -1,18 +1,17 @@
 ---
-  import '../style/global.css';
-  import JsonLD from '../components/JsonLD.astro';
-  import BaseHead from './BaseHead.astro';
-  import Header from '../components/Header.astro';
-  import Footer from '../components/Footer.astro';
+import '../style/global.css';
+import JsonLD from '../components/JsonLD.astro';
+import BaseHead from './BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-  const { content } = Astro.props;
-  const author = 'Jeff Caldwell';
-  const dir = Astro.canonicalURL.pathname;
+const { content } = Astro.props;
+const author = 'Jeff Caldwell';
+// const notesPath = (Astro.canonicalURL.pathname + '**/*.md').toString();
+const notesPath = ('../pages' + Astro.canonicalURL.pathname + '**/*.md').toString();
 
-  const importPath = `../pages${dir}**/*.md`;
-
-  const children = import.meta.glob('../pages' + dir + '**/*.md');
-  console.log(children);
+const children = import.meta.globEager('/pages' + Astro.canonicalURL.pathname + '**/*.md');
+console.log(children);
 ---
 
 <!DOCTYPE html>
