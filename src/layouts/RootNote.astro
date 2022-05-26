@@ -1,0 +1,40 @@
+---
+  import '../style/global.css';
+  import JsonLD from '../components/JsonLD.astro';
+  import BaseHead from './BaseHead.astro';
+  import Header from '../components/Header.astro';
+  import Footer from '../components/Footer.astro';
+
+  const { content } = Astro.props;
+  const author = 'Jeff Caldwell';
+  const dir = Astro.canonicalURL.pathname;
+
+  const importPath = `../pages${dir}**/*.md`;
+
+  const children = import.meta.glob('../pages' + dir + '**/*.md');
+  console.log(children);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<BaseHead {content.title}>
+  <JsonLD {content} />
+</BaseHead>
+
+<body>
+  <Header />
+  <main>
+    <article class="h-entry blog-content">
+      <h2 class="p-name page-heading">{content.title}</h2>
+      <div class="e-content flow">
+        <slot />
+      </div>
+
+      <div class="post-grid">
+      </div>
+    </article>
+  </main>
+  <Footer />
+</body>
+
+</html>

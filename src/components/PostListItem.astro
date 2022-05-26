@@ -1,13 +1,9 @@
 ---
-const {post} = Astro.props;
-const excerpt = post.frontmatter.description.length <= 156 ? post.frontmatter.description : post.frontmatter.description.substring(0, 156) + '...';
+  const { post } = Astro.props;
 ---
 
-<!-- <article class="post-item h-entry"> -->
-  <a href={`${post.url}`} class="heading-link post-item-col">
-    <span class="p-name post-item-heading">{post.frontmatter.title}</span>
-    <time class="dt-published post-item-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
-  </a>
-  <!-- <p class="p-summary post-item-description">{excerpt}</p> -->
-  <!-- <a href={`/writing/${post.frontmatter.slug}`} class="post-item-link">Read More</a> -->
-<!-- </article> -->
+<a href={`${post.url}`} class="heading-link post-item-col">
+  <span class="p-name post-item-heading">{post.frontmatter.title}</span>
+  <time class="dt-published post-item-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long',
+    day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
+</a>
