@@ -73,12 +73,12 @@
       <div class="e-content flow">
         <slot />
       </div>
-      { !notes.length ? null : <div class="mt-5">
-        <h2 class="mb-1 text-xl font-bold text-gray-400">Backlinks</h2>
-        <ul class="list-disc list-inside">
+      { !notes.length ? null : <div>
+        <h2>Backlinks</h2>
+        <ul>
           {notes.map(note => {
           return <li class="mb-2">
-            <a href={`${note.url}`} class="text-accent-400">{note.title}</a>
+            <a href={`${note.url}`}>{note.title}</a>
           </li>
           })}
         </ul>
