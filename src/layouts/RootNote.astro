@@ -2,16 +2,40 @@
 import '../style/global.css';
 import JsonLD from '../components/JsonLD.astro';
 import BaseHead from './BaseHead.astro';
+import TwitterMeta from './TwitterMeta.astro';
+import OGMeta from './OGMeta.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PostListItem from '../components/PostListItem.astro';
 
 const { content } = Astro.props;
 const author = 'Jeff Caldwell';
-// const notesPath = (Astro.canonicalURL.pathname + '**/*.md').toString();
-const notesPath = ('../pages' + Astro.canonicalURL.pathname + '**/*.md').toString();
 
-const children = import.meta.globEager('/pages' + Astro.canonicalURL.pathname + '**/*.md');
-console.log(children);
+const allNotes = import.meta.glob('../pages/notes/**/*.md');
+
+let notes = await Promise.all(
+  Object.entries(allNotes).map(async ([key, note]) => {
+    const url = key.replace('../pages/notes/', '').replace('.md', '/').replace('index/', '');
+    const cleanUrl = key.replace('../pages/notes/', '').replace('/index', '').replace('.md', '/');
+    const splitUrl = cleanUrl.split('/').filter(el => el !== '');
+    const thisPage = Astro.canonicalURL.pathname.replace('/notes/', '').replace('/', '');
+
+    if (splitUrl.length > 1 && splitUrl[0] === thisPage) {
+
+      return note().then(async content => {
+        const source = await content.default();
+        return {
+          frontmatter: source.frontmatter,
+          url
+        }
+      })
+    }
+  })
+);
+
+notes = notes.filter((note) => note !== undefined);
+
+console.log(notes);
 ---
 
 <!DOCTYPE html>
@@ -25,11 +49,21 @@ console.log(children);
   <main>
     <article class="h-entry blog-content">
       <h2 class="p-name page-heading">{content.title}</h2>
+      <p>
+        <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
+          day: 'numeric', year: 'numeric'})}</time>
+        , by
+        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">{author}</a>,
+        Last updated:
+        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', weekday:
+          'long', day: 'numeric', year: 'numeric'})}</time>
+      </p>
       <div class="e-content flow">
         <slot />
       </div>
-
       <div class="post-grid">
+        {notes.map((note) =>
+        <PostListItem post={note} />)}
       </div>
     </article>
   </main>

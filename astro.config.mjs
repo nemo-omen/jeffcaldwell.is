@@ -5,5 +5,9 @@ import svelte from '@astrojs/svelte';
 export default defineConfig({
    // adapter: vercel(),
    integrations: [svelte()],
-   site: 'https://jeffcaldwell.is'
+   site: 'https://jeffcaldwell.is',
+   markdown: {
+      remarkPlugins: ['remark-math', 'remark-smartypants', 'remark-gfm'],
+      rehypePlugins: ['rehype-mathjax']
+   }
 });

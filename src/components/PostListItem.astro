@@ -1,8 +1,8 @@
 ---
-  const { post } = Astro.props;
+const { post } = Astro.props;
 ---
 
-<a href={`${post.url}`} class="heading-link post-item-col">
+<a href={`${post.url ?? '' }`} class="heading-link post-item-col">
   <span class="p-name post-item-heading">{post.frontmatter.title}</span>
   <time class="dt-published post-item-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month: 'long',
     day: 'numeric', weekday: 'long', year: 'numeric'})}</time>

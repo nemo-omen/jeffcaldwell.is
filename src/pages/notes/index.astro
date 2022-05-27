@@ -1,13 +1,13 @@
 ---
-  import Main from '../../layouts/Main.astro';
-  import PostListItem from '../../components/PostListItem.astro';
-  const posts = await Astro.glob('./*/*.md');
-  const sorted = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+import Main from '../../layouts/Main.astro';
+import PostListItem from '../../components/PostListItem.astro';
+const posts = await Astro.glob('./*/*.md');
+const sorted = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 ---
 
 <Main title={"Notes — Jeff Caldwell"}>
   <h2 class="page-heading" id="notes">Notes</h2>
-  <p>Short-form pieces of writing and oncomplete thoughts. Nothing in this part of the site should be considered to be
+  <p>Short-form pieces of writing and incomplete thoughts. Nothing in this part of the site should be considered to be
     in any way conclusive.</p>
   <div class="post-grid">
     {sorted.map((post) => (
