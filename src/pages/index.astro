@@ -4,20 +4,34 @@ import PostListItem from '../components/PostListItem.astro';
 import PostFeature from '../components/PostFeature.astro';
 import Intro from '../components/Intro.astro';
 let posts = await Astro.glob('./writing/*/*.md');
+let notes = await Astro.glob('./notes/*/*.md');
 
 const sorted = posts.sort((a, b) => new Date(b.frontmatter.updated).valueOf() - new Date(a.frontmatter.updated).valueOf());
+const sortedNotes = notes.sort((a, b) => new Date(b.frontmatter.updated).valueOf() - new Date(a.frontmatter.updated).valueOf());
 ---
 
 <Main title="Jeff Caldwell — Web Developer">
   <Intro />
-  <div class="page-grid">
-    <section class="content-list flow">
-      <h2 class="page-heading" id="latest">
-        Latest Writing
+
+  <div class="page-grid" id="content">
+    <section class="content-list">
+      <h2 class="page-heading" id="writing">
+        Writing
       </h2>
-      <div class="post-list flow">
-        {sorted.slice(0, 4).map((post) => (
+      <div class="post-list">
+        {sorted.slice(0, 2).map((post) => (
         <PostFeature {post} />))}
+        <a href="/notes" class="list-link">More writing</a>
+      </div>
+    </section>
+    <section class="content-list">
+      <h2 class="page-heading" id="notes">
+        Notes
+      </h2>
+      <div class="post-list">
+        {sortedNotes.slice(0, 6).map((post) => (
+        <PostListItem {post} />))}
+        <a href="/notes" class="list-link">More notes</a>
       </div>
     </section>
   </div>

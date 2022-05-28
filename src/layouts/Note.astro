@@ -38,8 +38,8 @@ notes = notes.filter(note => {
 
 <body>
   <Header />
-  <main>
-    <article class="h-entry blog-content">
+  <main role="main">
+    <article class="h-entry blog-content" id="content">
       <h2 class="p-name page-heading">{content.title}</h2>
       <p>
         <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',

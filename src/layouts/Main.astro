@@ -14,24 +14,16 @@ const image = Astro.canonicalURL + 'images/feature.jpg';
 <html lang="en">
 
 <BaseHead {title}>
-  <OGMeta
-    {title}
-    {description}
-    {type}
-    {image}
-  />
-  <TwitterMeta
-    {title}
-    {description}
-    {image}
-  />
+  <OGMeta {title} {description} {type} {image} />
+  <TwitterMeta {title} {description} {image} />
 </BaseHead>
 
 <body>
   <Header />
-  <main id="content">
-	  <slot />
+  <main role="main">
+    <slot />
   </main>
   <Footer />
 </body>
+
 </html>

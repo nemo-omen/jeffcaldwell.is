@@ -49,8 +49,8 @@ notes = notes.filter(note => {
 
 <body>
   <Header />
-  <main>
-    <article class="h-entry blog-content">
+  <main id="content" role="main">
+    <article class="h-entry blog-content" id="content">
       <img src={content.featuredImage} width="1000" height="500" class="featured-post-photo" />
       <h2 class="p-name page-heading">{content.title}</h2>
       <p>
