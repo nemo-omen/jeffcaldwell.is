@@ -1,8 +1,36 @@
 ---
 import Main from '../../layouts/Main.astro';
-import PostListItem from '../../components/PostListItem.astro';
+import NoteListItem from '../../components/NoteListItem.astro';
+import { getDirTree } from '../../utils.js';
+
 const posts = await Astro.glob('./*/*.md');
 const sorted = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const dirTree = getDirTree('./src/pages/notes');
+
+let notesChildren = [...dirTree.children];
+let postObjects = [];
+
+notesChildren = notesChildren.map((child) => {
+  return {
+    ...child,
+    path: child.path.replace('src/pages', ''),
+  };
+});
+
+sorted.forEach((post) => {
+  const postObj = {
+    post,
+    children: []
+  };
+
+  notesChildren.forEach((child) => {
+    if (child.path === post.url && child.hasOwnProperty('children')) {
+      postObj.children = [...child.children];
+    }
+  });
+
+  postObjects.push(postObj);
+});
 ---
 
 <Main title={"Notes — Jeff Caldwell"}>
@@ -10,8 +38,8 @@ const sorted = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new
   <p>Short-form pieces of writing and incomplete thoughts. Nothing in this part of the site should be considered to be
     in any way conclusive.</p>
   <div class="post-grid">
-    {sorted.map((post) => (
-    <PostListItem {post} />
+    {postObjects.map((obj) => (
+    <NoteListItem note={obj.post} children={obj.children} />
     ))}
   </div>
 </Main>

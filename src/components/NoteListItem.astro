@@ -1,0 +1,25 @@
+---
+const { note, children } = Astro.props;
+
+const filteredChildren = children.filter((child) => child.children);
+
+console.log(filteredChildren);
+---
+
+<article class="post-item post-item-col">
+  <a href={`${note.url ?? '' }`} class="p-name post-item-heading">{note.frontmatter.title}</a>
+  {filteredChildren.map((child) => <a class="title-case" href={child.path.replace('src/pages', ''
+    )}>{child.name.replace('-', ' ')}</a>)}
+  <span>
+    Updated: <time class="dt-published post-item-date">{new Date(note.frontmatter.updated).toLocaleDateString('en-US',
+      {month:
+      'long',
+      day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
+  </span>
+</article>
+
+<style>
+  .title-case {
+    text-transform: capitalize;
+  }
+</style>
