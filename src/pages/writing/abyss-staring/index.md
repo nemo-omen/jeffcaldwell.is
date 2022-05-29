@@ -12,3 +12,8 @@ type: blog
 draft: true
 ---
 
+```js
+const helloThere = function () {
+  console.log('Welcome to JeffCaldwell.is!');
+};
+```

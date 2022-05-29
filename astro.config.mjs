@@ -15,6 +15,11 @@ export default defineConfig({
          'remark-smartypants',
          'remark-gfm',
       ],
-      rehypePlugins: ['rehype-mathjax']
+      rehypePlugins: ['rehype-mathjax'],
+      drafts: true,
+      shikiConfig: {
+         // theme: 'monokai',
+         wrap: true
+      }
    }
 });

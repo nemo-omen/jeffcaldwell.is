@@ -31,15 +31,19 @@ sorted.forEach((post) => {
 
   postObjects.push(postObj);
 });
+
+postObjects = postObjects.filter((obj) => obj.post.frontmatter.draft === false);
 ---
 
 <Main title={"Notes — Jeff Caldwell"}>
   <h2 class="page-heading" id="notes">Notes</h2>
   <p>Short-form pieces of writing and incomplete thoughts. Nothing in this part of the site should be considered to be
     in any way conclusive.</p>
+  {postObjects.length > 0 ?
   <div class="post-grid">
     {postObjects.map((obj) => (
     <NoteListItem note={obj.post} children={obj.children} />
     ))}
   </div>
+  : null}
 </Main>

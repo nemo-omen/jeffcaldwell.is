@@ -140,6 +140,10 @@ a:focus {
   background-color: var(--highlight);
 }
 
+pre {
+  padding: 1rem;
+}
+
 .flow > * + * {
   margin-top: var(--flow-space);
 }
