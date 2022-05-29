@@ -15,15 +15,15 @@ This is a tentative stab at a process, more or less lifted from [Accessible to A
 
 1. [Structure Pass](/notes/accessibility/structure-pass)
 2. Keyboard access
-   1. Focus semantics
-   2. Tabindex
-   3. Focus styles
+   - Focus semantics
+   - Tabindex
+   - Focus styles
 3. Semantics/screen reader pass
-   1. Landmarks
-   2. Labels
-   3. Media
+   - Landmarks
+   - Labels
+   - Media
 4. Accessible CSS pass
-   1. Tap targets
-   2. Color/contrast
-   3. Responsive design
-   4. Reordering
+   - Tap targets
+   - Color/contrast
+   - Responsive design
+   - Reordering

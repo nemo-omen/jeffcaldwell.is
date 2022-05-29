@@ -22,7 +22,7 @@ const sortedNotes = notes.sort((a, b) => new Date(b.frontmatter.updated).valueOf
       <div class="post-list">
         {sorted.slice(0, 2).map((post) => (
         <PostFeature {post} />))}
-        <a href="/notes" class="list-link">More writing</a>
+        <a href="/writing" class="list-link">More writing</a>
       </div>
     </section>
     <section class="content-list">

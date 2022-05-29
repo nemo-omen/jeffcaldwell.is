@@ -1,13 +1,15 @@
 ---
-  import '../style/reset.css';
-  import '../style/global.css';
-  const { title } = Astro.props;
-  const canonical = Astro.canonicalURL;
+import '../style/reset.css';
+import '../style/global.css';
+const { title } = Astro.props;
+const canonical = Astro.canonicalURL;
 ---
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="The personal website of Jeff Caldwell, web developer, computer science student, and small-city local journalist.">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="me" href="https://indieweb.social/web/@trainingmontage">
   <link rel="me" href="https://twitter.com/trainingm0ntage">
@@ -15,7 +17,9 @@
   <link rel="canonical" href={canonical}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/fonts/Webfonts-Rebrand/stylesheet.css">
   <slot />
   <title>{title}</title>
