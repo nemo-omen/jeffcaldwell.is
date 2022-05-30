@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import rehypeMathjaxChtml from 'rehype-mathjax/chtml.js'
 import vercel from '@astrojs/vercel';
 import svelte from '@astrojs/svelte';
 
@@ -15,7 +16,11 @@ export default defineConfig({
          'remark-smartypants',
          'remark-gfm',
       ],
-      rehypePlugins: ['rehype-mathjax'],
+      rehypePlugins: [[rehypeMathjaxChtml, {
+         chtml: {
+            fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
+          }
+      }]],
       drafts: true,
       shikiConfig: {
          // theme: 'monokai',
