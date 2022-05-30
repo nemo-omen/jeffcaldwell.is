@@ -5,10 +5,20 @@ updated: 2022-05-26 12:42:33
 layout: '../../../../layouts/Note.astro'
 ---
 
-Check it out! Stuff about sets! If you think this is interesting you should read about [graphs](/notes/discrete-math/graphs).
+<dl>
+  <dt>Set</dt>
+<dd>An unordered collection of objects.</dd>
+</dl>
 
-Okay, let's see if a set shows up here.
+## Roster Notation
 
-$A \in \{1,2,3,4,5\}$
+The easiest way to express a set is to use [roster notation](#roster-notation) — this basically lists all of the _unique_ objects belonging to the set. It looks like this:
 
-$2^2$
+$$
+A=\{1,2,3,4,5\}
+$$
+
+Pretty simple, right?
+
+
+Next: [Graphs](/notes/discrete-math/graphs).

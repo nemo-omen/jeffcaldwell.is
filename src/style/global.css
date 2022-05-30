@@ -117,6 +117,15 @@ ul {
   margin-inline-start: 1rem;
 }
 
+dt {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+dd {
+  padding-inline-start: 1rem;
+}
+
 :focus {
   outline: 2px solid transparent;
   outline-offset: -2px;
