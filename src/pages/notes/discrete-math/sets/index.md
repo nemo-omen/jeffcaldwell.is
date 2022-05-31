@@ -2,7 +2,9 @@
 title: Sets
 date: 2022-05-26 12:42:28
 updated: 2022-05-26 12:42:33
-layout: '../../../../layouts/Note.astro'
+layout: '$layouts/Note.astro'
+setup:
+  import playground from './playground.js'
 ---
 
 <dl>
@@ -34,46 +36,30 @@ A.add(3);
 A.add(4);
 A.add(5);
 
-const member = function(number, set) {
+const isMember = function(number, set) {
   return (set.has(number));
 };
 
-member(1, A); // true
+isMember(1, A); // true
 
-member(6, A); // false
+isMember(6, A); // false
 ```
 
-<script is:inline>
-const A = new Set();
-A.add(1);
-A.add(2);
-A.add(3);
-A.add(4);
-A.add(5);
+### Special Sets
 
-const member = function(number, set) {
-  return (set.has(number));
-};
+$\emptyset$ — The empty set
 
-console.log(`1 is a member of A: ${member(1, A)}`);
+$\mathbb{N}$ — Natural numbers, $\{0,1,2,3,4,5,6,...\}$
 
-console.log(`6 is a member of A: ${member(6, A)}`);
+$\mathbb{Z}$ — Integers, $\{...,-3,-2,-1,0,1,2,3,...\}$
 
-const addAll = function (set, ...members) {
-  members.forEach((member) => set.add(member));
-  
-  return set;
-};
+$\mathbb{Q} — The rational numbers$
 
-const B = addAll(new Set(), 6,7,8,9,10);
+$\mathbb{R} — The real numbers$
 
-console.log(B);
+$U$ - Universe set, the set of all elements
 
-const C = addAll(new Set(),2,4,6,8);
-console.log(C);
-</script>
-
-
+$P()$ - The power set of any set
 ### addAll Function
 
 ```js
@@ -86,15 +72,6 @@ const B = addAll(new Set(), 6,7,8,9,10);
 
 console.log(B); // [6,7,8,9,10]
 ```
-
-
-### Special Sets
-
-$\emptyset$ — The empty set
-
-$\mathbb{Z}$ — Integers, $\{...,-3,-2,-1,0,1,2,3,...\}$
-
-$\mathbb{N}$ — Natural numbers, $\{0,1,2,3,4,5,6,...\}$
 
 
 Next: [Graphs](/notes/discrete-math/graphs).

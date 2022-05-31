@@ -5,6 +5,9 @@ import rehypeMathjaxChtml from 'rehype-mathjax/chtml.js'
 import vercel from '@astrojs/vercel';
 import svelte from '@astrojs/svelte';
 
+const __fileName = fileURLToPath(import.meta.url);
+const __dirname = dirname(__fileName);
+
 // https://astro.build/config
 export default defineConfig({
    // adapter: vercel(),
@@ -26,5 +29,13 @@ export default defineConfig({
          // theme: 'monokai',
          wrap: true
       }
-   }
+   },
+   vite: {
+      resolve: {
+         alias: {
+            '$layouts': resolve(__dirname, './src/layouts'),
+            '$components': resolve(__dirname, './src/components'),
+         }
+      }
+   },
 });
