@@ -58,7 +58,35 @@ const member = function(number, set) {
 console.log(`1 is a member of A: ${member(1, A)}`);
 
 console.log(`6 is a member of A: ${member(6, A)}`);
+
+const addAll = function (set, ...members) {
+  members.forEach((member) => set.add(member));
+  
+  return set;
+};
+
+const B = addAll(new Set(), 6,7,8,9,10);
+
+console.log(B);
+
+const C = addAll(new Set(),2,4,6,8);
+console.log(C);
 </script>
+
+
+### addAll Function
+
+```js
+const addAll = function (set, ...members) {
+  members.forEach((member) => set.add(member));
+  return set;
+};
+
+const B = addAll(new Set(), 6,7,8,9,10);
+
+console.log(B); // [6,7,8,9,10]
+```
+
 
 ### Special Sets
 
