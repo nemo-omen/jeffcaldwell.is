@@ -14,8 +14,6 @@ setup:
    3. [Set Operations](#set-operations)
    4. [JavaScript Set Operations](#javascript-set-operations)
    5. [addAll Function](#addall-function)
-   6. [Union Function](#union-function)
-   7. [Intersection Function](#intersection-function)
 
 <dl>
   <dt>Set</dt>
@@ -76,28 +74,74 @@ const B = addAll(new Set(), 6,7,8,9,10);
 const C = addAll(new Set(),1,3,5,7,9,11);
 const D = addAll(new Set(),2,4,6,8,10);
 const E = addAll(new Set(),12,14,16,18);
+const U = new Set(); // the universe for this exercise
+
+for (let i = 0; i < 50; i++) {
+  U.add(i);
+}
 ```
 
-### Union Function
-$A \cup B$
+With the above code we have:
+
+$A=\{1,2,3,4,5\}$
+
+$B=\{6,7,8,9,10\}$
+
+$C=\{1,3,5,7,9,11\}$
+
+$D=\{2,4,6,8,10\}$
+
+$E=\{12,14,16,18\}$
+
+$U=\{x:x \in \mathbb{N}, x < 50 \}$
+
 
 ```js
-const union = function(...sets) {
-  const unionSet = new Set();
+const isSubset = function(lhs, rhs) {
+  for (let member of lhs) {
+    if (!rhs.has(member)) {
+      return false;
+    }
+  }
 
-  sets.forEach((set) => {
-    set.forEach((member) => unionSet.add(member));;
-  });
+  return true;
+};
 
-  return unionSet;
+const isSuperSet = function(lhs,rhs) {
+  for (let member of rhs) {
+    if (!lhs.has(member)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-console.log(union(A,B,C)); // { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }
+const cardinality = function(set) {
+  return set.size;
+}
 
+const union = function(...sets) {
+  const setUnion = new Set();
+
+  sets.forEach((set) => {
+    set.forEach((member) => setUnion.add(member));
+  })
+
+  return setUnion;
+};
+
+const intersection = function (...sets) {
+  const setIntersection = new Set();
+
+  sets.reduce((previous, current) => {
+    current.forEach((member) => {
+      if(previous.has(member)) {
+        setIntersection.add(member);
+      }
+    });
+  });
+
+  return setIntersection;
+};
 ```
-
-### Intersection Function
-
-$A \cap B$
-
-Next: [Graphs](/notes/discrete-math/graphs).
