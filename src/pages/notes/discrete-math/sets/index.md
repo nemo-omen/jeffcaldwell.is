@@ -60,6 +60,8 @@ Sets in JavaScript are data structures that replicate, more or less, some of the
 
 I'm not going to go over everything you can do with JS sets, just a few set operations. If you wantt to read more head over to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).
 
+Let's set up some simple exercises so we can play around with sets.
+
 ### addAll Function
 It can feel like a real pain to add individual items to js sets. Here's a function that accepts a set and any number of objects and adds all the objects to the set.
 
@@ -68,20 +70,28 @@ const addAll = function (set, ...members) {
   members.forEach((member) => set.add(member));
   return set;
 };
+```
+
+After creating the above function, it's pretty easy to instantiate new sets. I'm going to go ahead and create a few and then use them for some exercises.
+
+```js
+const U = new Set(); // the universe for this exercise
+
+for (let i = 0; i < 50; i++) {
+  U.add(i);
+}
 
 const A = addAll(new Set(), 1,2,3,4,5);
 const B = addAll(new Set(), 6,7,8,9,10);
 const C = addAll(new Set(),1,3,5,7,9,11);
 const D = addAll(new Set(),2,4,6,8,10);
 const E = addAll(new Set(),12,14,16,18);
-const U = new Set(); // the universe for this exercise
 
-for (let i = 0; i < 50; i++) {
-  U.add(i);
-}
 ```
 
 With the above code we have:
+
+$U=\{x:x \in \mathbb{N}, x < 50 \}$ — the universe, or the domain for all sets to follow.
 
 $A=\{1,2,3,4,5\}$
 
@@ -93,7 +103,6 @@ $D=\{2,4,6,8,10\}$
 
 $E=\{12,14,16,18\}$
 
-$U=\{x:x \in \mathbb{N}, x < 50 \}$
 
 
 ```js
