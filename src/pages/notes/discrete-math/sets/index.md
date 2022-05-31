@@ -3,6 +3,8 @@ title: Sets
 date: 2022-05-26 12:42:28
 updated: 2022-05-26 12:42:33
 layout: '$layouts/Note.astro'
+setup:
+  import Playground from './Playground.svelte'
 ---
 
 1. [Roster Notation](#roster-notation)
@@ -152,3 +154,5 @@ const intersection = function (...sets) {
   return setIntersection;
 };
 ```
+
+<Playground client:load />
