@@ -35,12 +35,12 @@ let notes = await Promise.all(
 
 notes = notes.filter((note) => note !== undefined);
 
-console.log(notes);
+console.log(content);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-<BaseHead {content.title}>
+<BaseHead title={content.title}>
   <JsonLD {content} />
 </BaseHead>
 
