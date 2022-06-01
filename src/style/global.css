@@ -178,6 +178,14 @@ pre {
   padding: 1rem;
 }
 
+.toc {
+  margin: 0;
+}
+
+.toc, .toc-level {
+  list-style-type: none;
+}
+
 #site-brand {
   font-family: 'rebrand_txtsemibold';
   transition: background-color var(--transition-default);
@@ -204,13 +212,13 @@ pre {
   max-width: 25ch;
 }
 
-nav {
+.site-nav {
   display: flex;
   border-bottom: 2px solid var(--foreground);
   border-top: 2px solid var(--foreground);
 }
 
-nav ol{
+.nav-list{
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -219,7 +227,7 @@ nav ol{
   list-style-type: none;
 }
 
-nav ol li {
+.site-nav ol li {
   flex-grow: 1;
   margin: 0;
   padding: 0.5rem 0;
@@ -227,11 +235,11 @@ nav ol li {
   pointer-events: none;
 }
 
-nav ol li:focus-within {
+.site-nav ol li:focus-within {
   background-color: var(--highlight);
 }
 
-nav ol li a {
+.site-nav ol li a {
   display: block;
   font-weight: 600;
   text-decoration: none;
@@ -241,15 +249,15 @@ nav ol li a {
   font-size: var(--font-size--100);
 }
 
-nav ol li:hover {
+.site-nav ol li:hover {
   background: var(--highlight);
 }
 
-nav ol li:hover a {
+.site-nav ol li:hover a {
   color: var(--foreground);
 }
 
-nav ol a:focus {
+.site-nav ol a:focus {
   background: transparent;
   color: var(--foreground);
   outline-offset: -2px;
@@ -397,7 +405,7 @@ td {
     margin-inline: 1.5rem;
   }
 
-  nav ol li {
+  .site-nav ol li {
     display: flex;
     align-items: center;
     padding-inline: 1rem;

@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
   '@astrojs/svelte': ^0.1.2
@@ -7,6 +7,7 @@ specifiers:
   directory-tree: ^3.3.0
   rehype-katex: ^6.0.2
   rehype-mathjax: ^4.0.2
+  rehype-toc: ^3.0.2
   remark-math: ^5.1.1
   remark-wiki-link: ^1.0.4
   svelte: ^3.47.0
@@ -16,6 +17,7 @@ dependencies:
   directory-tree: 3.3.0
   rehype-katex: 6.0.2
   rehype-mathjax: 4.0.2
+  rehype-toc: 3.0.2
   remark-math: 5.1.1
   remark-wiki-link: 1.0.4
   svelte: 3.47.0
@@ -96,7 +98,7 @@ packages:
     resolution: {integrity: sha512-rgi3g078uAxdb8jg1A5U8sNWMUQq7UXwHT7qmPiGOeB+h5p+tzUFy/Awq2suv99Tq8efpn3HrAGTuDvxyvbwfg==}
     dependencies:
       svelte: 3.47.0
-      svelte2tsx: 0.5.9_xnf64rhacgemelcurd3uaqi2ei
+      svelte2tsx: 0.5.9_svelte@3.47.0+typescript@4.6.4
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -110,7 +112,7 @@ packages:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.42_svelte@3.47.0+vite@2.9.6
       postcss-load-config: 3.1.4
       svelte: 3.47.0
-      svelte-preprocess: 4.10.6_ouvyccvykwltmjwugnola6eovq
+      svelte-preprocess: 4.10.6_752b810ab855973626d4335cb0788eac
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -379,6 +381,11 @@ packages:
       '@jridgewell/resolve-uri': 3.0.6
       '@jridgewell/sourcemap-codec': 1.4.11
     dev: true
+
+  /@jsdevtools/rehype-toc/3.0.2:
+    resolution: {integrity: sha512-n5JEf16Wr4mdkRMZ8wMP/wN9/sHmTjRPbouXjJH371mZ2LEGDl72t8tEsMRNFerQN/QJtivOxqK1frdGa4QK5Q==}
+    engines: {node: '>=10'}
+    dev: false
 
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
@@ -3335,6 +3342,13 @@ packages:
       unified: 10.1.2
     dev: true
 
+  /rehype-toc/3.0.2:
+    resolution: {integrity: sha512-DMt376+4i1KJGgHJL7Ezd65qKkJ7Eqp6JSB47BJ90ReBrohI9ufrornArM6f4oJjP2E2DVZZHufWucv/9t7GUQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@jsdevtools/rehype-toc': 3.0.2
+    dev: false
+
   /remark-gfm/3.0.1:
     resolution: {integrity: sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig==}
     dependencies:
@@ -3762,7 +3776,7 @@ packages:
       svelte: 3.47.0
     dev: true
 
-  /svelte-preprocess/4.10.6_ouvyccvykwltmjwugnola6eovq:
+  /svelte-preprocess/4.10.6_752b810ab855973626d4335cb0788eac:
     resolution: {integrity: sha512-I2SV1w/AveMvgIQlUF/ZOO3PYVnhxfcpNyGt8pxpUVhPfyfL/CZBkkw/KPfuFix5FJ9TnnNYMhACK3DtSaYVVQ==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -3817,7 +3831,7 @@ packages:
     resolution: {integrity: sha512-4JaJp3HEoTCGARRWZQIZDUanhYv0iyoHikklVHVLH9xFE9db22g4TDv7CPeNA8HD1JgjXI1vlhR1JZvvhaTu2Q==}
     engines: {node: '>= 8'}
 
-  /svelte2tsx/0.5.9_xnf64rhacgemelcurd3uaqi2ei:
+  /svelte2tsx/0.5.9_svelte@3.47.0+typescript@4.6.4:
     resolution: {integrity: sha512-xTDASjlh+rKo4QRhTRYSH87sS7fRoyX67xhGIMPKa3FYqftRHRmMes6nVgEskiuhBovslNHYYpMMg5YM5n/STg==}
     peerDependencies:
       svelte: ^3.24

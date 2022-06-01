@@ -1,0 +1,53 @@
+---
+const path = Astro.canonicalURL.pathname;
+
+const segments = path.split('/').filter((segment) => segment !== '');
+
+const navElements = segments.map((segment, index) => {
+  return {
+    text: segment.replace(/-/g, ' '),
+    link: '/' + segments.slice(0, index + 1).join('/') + '/'
+  };
+});
+
+console.log(path);
+console.log(navElements);
+---
+
+<nav class="breadcrumb-nav" aria-label="Breadcrumb Navigation">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList" role="list">
+    {navElements.map((segment) => <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+      <a class="breadcrumb-link" href={segment.link}>
+        <span itemprop="name">{segment.text}</span>
+        <meta itemprop="position" content={navElements.indexOf(segment) + 1} />
+      </a>
+    </li>
+    {navElements.indexOf(segment) !== navElements.length - 1 ? <span class="breadcrumb-separator">/</span> : null}
+    )}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-nav {
+    border: none;
+    justify-content: flex-start;
+    gap: unset;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    width: unset;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item,
+  .breadcrumb-link {
+    margin: 0;
+    text-transform: capitalize;
+  }
+</style>

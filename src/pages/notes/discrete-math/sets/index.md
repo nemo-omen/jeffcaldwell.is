@@ -7,14 +7,6 @@ setup:
   import Playground from './Playground.svelte'
 ---
 
-1. [Roster Notation](#roster-notation)
-2. [Set Membership](#set-membership)
-   1. [Special Sets](#special-sets)
-   2. [Set Relationships](#set-relationships)
-   3. [Set Operations](#set-operations)
-   4. [JavaScript Set Operations](#javascript-set-operations)
-   5. [addAll Function](#addall-function)
-
 <dl>
   <dt>Set</dt>
 <dd>An unordered collection of objects.</dd>
@@ -34,7 +26,7 @@ Pretty simple, right?
 
 An object that is in a set is considered a __member__ of that set. Membership is denoted by the $\in$ symbol. If we take set $A$ above as an example, we could say $4 \in A$, or $4$ is a member of $A$. Conversely, we could say that $6 \notin A$, or $6$ is _not_ a member of $A$.
 
-### Special Sets
+## Special Sets
 
 $\emptyset$ — The empty set
 
@@ -50,12 +42,12 @@ $U$ - Universe set, the set of all elements
 
 $P()$ - The power set of any set
 
-### Set Relationships
+## Set Relationships
 
-### Set Operations
+## Set Operations
 
 
-### JavaScript Set Operations
+## JavaScript Set Operations
 Sets in JavaScript are data structures that replicate, more or less, some of the basic behavior of mathematical sets. They are collections of _unique_ elements.
 
 I'm not going to go over everything you can do with JS sets, just a few set operations. If you wantt to read more head over to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).

@@ -6,6 +6,7 @@ import TwitterMeta from './TwitterMeta.astro';
 import OGMeta from './OGMeta.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const { content } = Astro.props;
 const author = 'Jeff Caldwell';
@@ -39,6 +40,7 @@ notes = notes.filter(note => {
 <body>
   <Header />
   <main role="main">
+    <Breadcrumbs url={Astro.request.url} />
     <article class="h-entry blog-content" id="content">
       <h2 class="p-name page-heading">{content.title}</h2>
       <p>

@@ -19,11 +19,16 @@ export default defineConfig({
          'remark-smartypants',
          'remark-gfm',
       ],
-      rehypePlugins: [[rehypeMathjaxChtml, {
-         chtml: {
+      rehypePlugins: [
+         [rehypeMathjaxChtml, {
+            chtml: {
             fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
-          }
-      }]],
+         }}],
+         ['rehype-toc', {
+            nav: false,
+            position: 'afterbegin'
+         }]
+      ],
       drafts: true,
       shikiConfig: {
          // theme: 'monokai',
