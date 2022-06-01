@@ -11,31 +11,20 @@ import PostListItem from '../components/PostListItem.astro';
 const { content } = Astro.props;
 const author = 'Jeff Caldwell';
 
-const allNotes = import.meta.glob('../pages/notes/**/*.md');
+const allNotes = await Astro.glob('../pages/notes/**/*.md');
+let notes = [];
 
-let notes = await Promise.all(
-  Object.entries(allNotes).map(async ([key, note]) => {
-    const url = key.replace('../pages/notes/', '').replace('.md', '/').replace('index/', '');
-    const cleanUrl = key.replace('../pages/notes/', '').replace('/index', '').replace('.md', '/');
-    const splitUrl = cleanUrl.split('/').filter(el => el !== '');
-    const thisPage = Astro.canonicalURL.pathname.replace('/notes/', '').replace('/', '');
 
-    if (splitUrl.length > 1 && splitUrl[0] === thisPage) {
+allNotes.forEach((note) => {
+  const url = note.url.replace('/notes/', '');
+  const splitUrl = url.split('/');
+  const thisPage = Astro.canonicalURL.pathname.replace('/notes/', '').replace('/', '');
 
-      return note().then(async content => {
-        const source = await content.default();
-        return {
-          frontmatter: source.frontmatter,
-          url
-        }
-      })
-    }
-  })
-);
-
-notes = notes.filter((note) => note !== undefined);
-
-console.log(content);
+  if (splitUrl[0] === thisPage && splitUrl.length > 1) {
+    console.log(note);
+    notes.push(note);
+  }
+});
 ---
 
 <!DOCTYPE html>
