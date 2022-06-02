@@ -17,32 +17,32 @@ setup:
 The easiest way to express a set is to use [roster notation](#roster-notation) — this basically lists all of the _unique_ objects belonging to the set. It looks like this:
 
 
-<!-- $$
+$$
 A=\{1,2,3,4,5\}
-$$ -->
+$$
 
 
 Pretty simple, right?
 
 ## Set Membership
 
-<!-- An object that is in a set is considered a __member__ of that set. Membership is denoted by the $\in$ symbol. If we take set $A$ above as an example, we could say $4 \in A$, or $4$ is a member of $A$. Conversely, we could say that $6 \notin A$, or $6$ is _not_ a member of $A$. -->
+An object that is in a set is considered a __member__ of that set. Membership is denoted by the $\in$ symbol. If we take set $A$ above as an example, we could say $4 \in A$, or $4$ is a member of $A$. Conversely, we could say that $6 \notin A$, or $6$ is _not_ a member of $A$.
 
 ## Special Sets
 
-<!-- $\emptyset$ — The empty set
+The empty set: $\phi$
 
-$\mathbb{N}$ — Natural numbers, $\{0,1,2,3,4,5,6,...\}$
+$\mathbb{N}$ - The Natural Numbers
 
-$\mathbb{Z}$ — Integers, $\{...,-3,-2,-1,0,1,2,3,...\}$
+$\mathbb{Z}$ - Integers, $\{...,-3,-2,-1,0,1,2,3,...\}$
 
-$\mathbb{Q} — The rational numbers$
+$\mathbb{Q} - The rational numbers$
 
-$\mathbb{R} — The real numbers$
+$\mathbb{R} - The real numbers$
 
 $U$ - Universe set, the set of all elements
 
-$P()$ - The power set of any set -->
+$P()$ - The power set of any set
 
 ## Set Relationships
 
