@@ -32,13 +32,13 @@ An object that is in a set is considered a __member__ of that set. Membership is
 
 The empty set: $\phi$
 
-$\mathbb{N}$ - The Natural Numbers
+$\mathbb{N}$ - The Natural Numbers, $\{0,1,2,3,4,...\}$ or $\{1,2,3,4,...\}$
 
 $\mathbb{Z}$ - Integers, $\{...,-3,-2,-1,0,1,2,3,...\}$
 
-$\mathbb{Q} - The rational numbers$
+$\mathbb{Q}$ - The rational numbers
 
-$\mathbb{R} - The real numbers$
+$\mathbb{R}$ - The real numbers
 
 $U$ - Universe set, the set of all elements
 
@@ -85,7 +85,7 @@ const E = addAll(new Set(),12,14,16,18);
 
 With the above code we have:
 
-<!-- $U=\{x:x \in \mathbb{N}, x < 50 \}$ — the universe, or the domain for all sets to follow.
+$U=\{x : x \in \mathbb{Z}, 50 \gt x \gt 0 \}$ - the universe, or the domain for all sets to follow.
 
 $A=\{1,2,3,4,5\}$
 
@@ -95,7 +95,7 @@ $C=\{1,3,5,7,9,11\}$
 
 $D=\{2,4,6,8,10\}$
 
-$E=\{12,14,16,18\}$ -->
+$E=\{12,14,16,18\}$
 
 
 
