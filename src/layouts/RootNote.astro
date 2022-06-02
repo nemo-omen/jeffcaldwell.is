@@ -25,6 +25,14 @@ allNotes.forEach((note) => {
     notes.push(note);
   }
 });
+
+notes = notes.sort((a, b) => {
+  if (a.frontmatter.hasOwnProperty('order') && b.frontmatter.hasOwnProperty('order')) {
+    return a.frontmatter.order - b.frontmatter.order;
+  }
+
+  return new Date(a.frontmatter.updated).valueOf() - new Date(b.frontmatter.updated).valueOf();
+});
 ---
 
 <!DOCTYPE html>
