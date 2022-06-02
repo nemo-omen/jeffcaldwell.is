@@ -85,7 +85,7 @@ const E = addAll(new Set(),12,14,16,18);
 
 With the above code we have:
 
-$U=\{x : x \in \mathbb{Z}, 50 \gt x \gt 0 \}$ - the universe, or the domain for all sets to follow.
+$U=\{x : x \in \mathbb{Z}, 50 > x > 0 \}$ - the universe, or the domain for all sets to follow.
 
 $A=\{1,2,3,4,5\}$
 
