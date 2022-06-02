@@ -75,7 +75,6 @@ body {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  /* justify-content: center; */
   gap: var(--space-s-m);
   width: 100vw;
   height: 100vh;
@@ -157,6 +156,18 @@ pre {
   margin-top: var(--flow-space);
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+}
+
 .shadow {
   box-shadow: var(--shadow-default);
   transition: box-shadow var(--transition-default);
@@ -168,10 +179,6 @@ pre {
 
 .border-radius {
   border-radius: 1rem;
-}
-
-.flex-center {
-  align-items: center;
 }
 
 .highlight-link article {

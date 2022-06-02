@@ -21,7 +21,6 @@ allNotes.forEach((note) => {
   const thisPage = Astro.canonicalURL.pathname.replace('/notes/', '').replace('/', '');
 
   if (splitUrl[0] === thisPage && splitUrl.length > 1) {
-    console.log(note);
     notes.push(note);
   }
 });

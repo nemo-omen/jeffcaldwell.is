@@ -15,15 +15,17 @@ export default defineConfig({
    site: 'https://jeffcaldwell.is',
    markdown: {
       remarkPlugins: [
-         'remark-math',
+         // 'remark-math',
          'remark-smartypants',
          'remark-gfm',
       ],
       rehypePlugins: [
-         [rehypeMathjaxChtml, {
-            chtml: {
-            fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
-         }}],
+         // [rehypeMathjaxChtml, {
+         //    chtml: {
+         //    fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
+         // }}],
+         // 'rehype-mathjax',
+         // 'rehype-katex',
          ['rehype-toc', {
             nav: false,
             position: 'afterbegin'

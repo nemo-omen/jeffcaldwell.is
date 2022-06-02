@@ -29,8 +29,6 @@ let notes = await Promise.all(
 notes = notes.filter(note => {
   return note.astro.source.toLowerCase().includes(`[${content.title.toLowerCase()}]`);
 });
-
-// console.log(content);
 ---
 
 <!DOCTYPE html>

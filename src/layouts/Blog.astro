@@ -14,7 +14,6 @@ let notes = await Promise.all(
     const url = key.replace('../pages/writing/', '/writing/').replace('/index', '').replace('.md', '/');
     return note().then(async content => {
       const source = await content.default();
-      // console.log(source.frontmatter.astro);
       return {
         ...source.frontmatter,
         url

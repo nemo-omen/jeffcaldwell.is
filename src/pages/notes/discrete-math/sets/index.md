@@ -4,7 +4,7 @@ date: 2022-05-26 12:42:28
 updated: 2022-06-01 08:03:09
 layout: '$layouts/Note.astro'
 setup:
-  import Playground from './Playground.svelte'
+  import Playground from './Playground.svelte';
 ---
 
 <dl>
@@ -16,19 +16,21 @@ setup:
 
 The easiest way to express a set is to use [roster notation](#roster-notation) — this basically lists all of the _unique_ objects belonging to the set. It looks like this:
 
-$$
+
+<!-- $$
 A=\{1,2,3,4,5\}
-$$
+$$ -->
+
 
 Pretty simple, right?
 
 ## Set Membership
 
-An object that is in a set is considered a __member__ of that set. Membership is denoted by the $\in$ symbol. If we take set $A$ above as an example, we could say $4 \in A$, or $4$ is a member of $A$. Conversely, we could say that $6 \notin A$, or $6$ is _not_ a member of $A$.
+<!-- An object that is in a set is considered a __member__ of that set. Membership is denoted by the $\in$ symbol. If we take set $A$ above as an example, we could say $4 \in A$, or $4$ is a member of $A$. Conversely, we could say that $6 \notin A$, or $6$ is _not_ a member of $A$. -->
 
 ## Special Sets
 
-$\emptyset$ — The empty set
+<!-- $\emptyset$ — The empty set
 
 $\mathbb{N}$ — Natural numbers, $\{0,1,2,3,4,5,6,...\}$
 
@@ -40,7 +42,7 @@ $\mathbb{R} — The real numbers$
 
 $U$ - Universe set, the set of all elements
 
-$P()$ - The power set of any set
+$P()$ - The power set of any set -->
 
 ## Set Relationships
 
@@ -83,7 +85,7 @@ const E = addAll(new Set(),12,14,16,18);
 
 With the above code we have:
 
-$U=\{x:x \in \mathbb{N}, x < 50 \}$ — the universe, or the domain for all sets to follow.
+<!-- $U=\{x:x \in \mathbb{N}, x < 50 \}$ — the universe, or the domain for all sets to follow.
 
 $A=\{1,2,3,4,5\}$
 
@@ -93,7 +95,7 @@ $C=\{1,3,5,7,9,11\}$
 
 $D=\{2,4,6,8,10\}$
 
-$E=\{12,14,16,18\}$
+$E=\{12,14,16,18\}$ -->
 
 
 
@@ -147,4 +149,4 @@ const intersection = function (...sets) {
 };
 ```
 
-<Playground client:load />
+<!-- <Playground client:load /> -->
