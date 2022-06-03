@@ -15,6 +15,7 @@ export default defineConfig({
    site: 'https://jeffcaldwell.is',
    markdown: {
       remarkPlugins: [
+         // ['remark-toc', {ordered: true, tight: true, heading: 'Contents', parents: ['root']}],
          'remark-math',
          'remark-smartypants',
          'remark-gfm',
@@ -26,6 +27,8 @@ export default defineConfig({
          // }}],
          // 'rehype-mathjax',
          ['rehype-katex', {output: 'mathml'}],
+         'rehype-autolink-headings',
+         'rehype-slug',
          ['rehype-toc', {
             nav: false,
             position: 'afterbegin',
@@ -45,7 +48,7 @@ export default defineConfig({
                            }
                         ]
                      },
-                     {...toc}
+                     toc
                   ]
                }
 

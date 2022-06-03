@@ -115,8 +115,12 @@ ul {
   margin-inline-start: 1em;
 }
 
-.children {
+.children, .toc, .toc-level {
   --flow-space: var(--space-3xs-2xs);
+}
+
+.toc > * + *, .toc-level > * + * {
+  margin-top: var(--flow-space);
 }
 
 dt {
