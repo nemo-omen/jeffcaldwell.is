@@ -11,12 +11,20 @@
   let fetchState = 'fetching';
 
   onMount(() => {
-    function getMentions() {
-      return fetch(wmUrl)
-        .then((response) => response.json)
-        .then((data) => data.links.filter((mention) => mention.activity.type !== 'like'));
-    }
+    counts = fetch(`https://webmention.io/api/count.json?target=${target}/`)
+      .then((res) => res.json())
+      .then((x) => x.type);
+    getMentions().then((x) => {
+      mentions = x;
+      fetchState = 'done';
+    });
   });
+
+  function getMentions() {
+    return fetch(wmUrl)
+      .then((response) => response.json)
+      .then((data) => data.links.filter((mention) => mention.activity.type !== 'like'));
+  }
 
   const fetchMore = () => {
     page += 1;
