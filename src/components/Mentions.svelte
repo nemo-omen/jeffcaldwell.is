@@ -4,16 +4,18 @@
 
   export let target;
 
-  const wmUrl = `https://webmention.io/api/count.json?target=${target}/`;
-
   let page = 0;
+  const countUrl = `https://webmention.io/api/count.json?target=${target}/`;
+  const wmUrl = `https://webmention.io/api/mentions?page=${page}&per-page=50&target=${target}/`;
+
   let mentions = [];
   let fetchState = 'fetching';
 
   onMount(() => {
-    counts = fetch(`https://webmention.io/api/count.json?target=${target}/`)
+    counts = fetch(countUrl)
       .then((res) => res.json())
       .then((x) => x.type);
+
     getMentions().then((x) => {
       mentions = x;
       fetchState = 'done';
@@ -22,14 +24,18 @@
 
   function getMentions() {
     return fetch(wmUrl)
-      .then((response) => response.json)
-      .then((data) => data.links.filter((mention) => mention.activity.type !== 'like'));
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        return data.links.filter((mention) => mention.activity.type !== 'like');
+      });
   }
 
   const fetchMore = () => {
     page += 1;
 
-    getMentions.then((data) => {
+    getMentions().then((data) => {
+      console.log(data);
       if (data.length) {
         mentions = [...mentions, ...data];
       } else {
@@ -67,11 +73,6 @@
     {/if}
     {#if fetchState !== 'nomore'}
       <button class="fetch-more" on:click={fetchMore}>Load More Mentions</button>
-    {:else}
-      <div>
-        <p>No more mentions!</p>
-        <a href="https://twitter.com/intent/tweet/?text=Check%20out%20{target}"> Say something about it! </a>
-      </div>
     {/if}
   </div>
 </section>
