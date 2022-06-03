@@ -113,7 +113,7 @@ p {
 
 ol,
 ul {
-  margin-inline-start: 1rem;
+  margin-inline-start: 1em;
 }
 
 dt {
@@ -122,7 +122,7 @@ dt {
 }
 
 dd {
-  padding-inline-start: 1rem;
+  padding-inline-start: 1em;
 }
 
 :focus {

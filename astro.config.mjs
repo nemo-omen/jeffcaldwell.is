@@ -30,7 +30,6 @@ export default defineConfig({
             nav: false,
             position: 'afterbegin',
             customizeTOC: (toc) => {
-               console.log(toc.children);
                const tocSection = {
                   type: 'element',
                   tagName: 'div',
