@@ -28,7 +28,34 @@ export default defineConfig({
          ['rehype-katex', {output: 'mathml'}],
          ['rehype-toc', {
             nav: false,
-            position: 'afterbegin'
+            position: 'afterbegin',
+            customizeTOC: (toc) => {
+               console.log(toc.children);
+               const tocSection = {
+                  type: 'element',
+                  tagName: 'div',
+                  properties: {className: 'toc-section flow'},
+                  children: [
+                     {
+                        type: 'element',
+                        tagName: 'h2',
+                        children: [
+                           {
+                              type: 'text',
+                              value: 'Contents',
+                           }
+                        ]
+                     },
+                     {...toc}
+                  ]
+               }
+
+               if (toc.children.length < 1) {
+                  return null;
+               }
+
+               return tocSection;
+            }
          }]
       ],
       drafts: true,

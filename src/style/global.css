@@ -185,8 +185,14 @@ pre {
   padding: 1rem;
 }
 
+.toc-section {
+  border: 2px solid var(--foreground);
+  padding: 1rem;
+  --flow-space: 1rem;
+}
+
 .toc {
-  margin: 0;
+  margin-inline: 0;
 }
 
 .toc, .toc-level {
