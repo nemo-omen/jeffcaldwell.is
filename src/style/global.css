@@ -231,7 +231,8 @@ code:not(pre code) {
   font-family: 'rebrand_dissemibold';
   transition: background-color var(--transition-default);
   max-width: 25ch;
-  border-bottom: var(--space-3xs-2xs) solid var(--foreground);
+  line-height: 1.25em;
+  /* border-bottom: var(--space-3xs-2xs) solid var(--foreground); */
 }
 
 .site-nav {
