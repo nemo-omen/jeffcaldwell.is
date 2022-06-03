@@ -66,7 +66,7 @@ notes = notes.filter(note => {
       }
     </article>
     <div class="mentions flow">
-      <Mentions target={Astro.canonicalURL} client:visible />
+      <Mentions target={Astro.canonicalURL} client:load />
     </div>
   </main>
   <Footer />
