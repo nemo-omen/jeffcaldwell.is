@@ -10,7 +10,6 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Mentions from '../components/Mentions.svelte';
 
 const { content } = Astro.props;
-const author = 'Jeff Caldwell';
 
 const allNotes = import.meta.glob('../pages/notes/**/*.md');
 
@@ -44,14 +43,12 @@ notes = notes.filter(note => {
     <Breadcrumbs url={Astro.request.url} />
     <article class="h-entry blog-content" id="content">
       <h2 class="p-name page-heading">{content.title}</h2>
-      <p>
-        <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
-          day: 'numeric', year: 'numeric'})}</time>
-        , by
-        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">{author}</a>,
-        Last updated:
-        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', weekday:
-          'long', day: 'numeric', year: 'numeric'})}</time>
+      <p class="updated">
+        Updated on
+        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', day:
+          'numeric', year: 'numeric'})}</time>
+        by
+        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">Jeff Caldwell</a>,
       </p>
       <div class="e-content flow">
         <slot />

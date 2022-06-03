@@ -53,11 +53,12 @@ notes = notes.filter(note => {
       <img alt={content.featuredImageDescription} src={content.featuredImage} width="1000" height="500"
         class="featured-post-photo" />
       <h2 class="p-name page-heading">{content.title}</h2>
-      <p>
-        <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
-          day: 'numeric', year: 'numeric'})}</time>
-        , by
-        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">Jeff Caldwell</a>
+      <p class="updated">
+        Updated on
+        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', day:
+          'numeric', year: 'numeric'})}</time>
+        by
+        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is">Jeff Caldwell</a>
       </p>
       <div class="e-content flow">
         <slot />

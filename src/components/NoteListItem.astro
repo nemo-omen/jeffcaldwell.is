@@ -4,19 +4,30 @@ const { note, children } = Astro.props;
 const filteredChildren = children.filter((child) => child.children);
 ---
 
-<article class="post-item post-item-col">
-  <a href={`${note.url ?? '' }`} class="p-name post-item-heading">{note.frontmatter.title}</a>
-  {filteredChildren.map((child) => <a class="title-case" href={child.path.replace('src/pages', ''
-    )}>{child.name.replace('-', ' ')}</a>)}
+<article class="post-item">
+  <h3 class="p-name post-item-heading">
+    <a href={`${note.url ?? '' }`}>
+      {note.frontmatter.title}
+    </a>
+  </h3>
+  <ul class="children flow">
+    {filteredChildren.map((child) => <li class="note-child-item"><a class="title-case"
+        href={child.path.replace('src/pages', '' )}>{child.name.replaceAll('-', ' ')}</a></li>)}
+  </ul>
   <span class="updated">
-    Updated: <time class="dt-published post-item-date">{new Date(note.frontmatter.updated).toLocaleDateString('en-US',
+    Updated: <time class="dt-published">{new Date(note.frontmatter.updated).toLocaleDateString('en-US',
       {month:
       'long',
-      day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
+      day: 'numeric', year: 'numeric'})}</time>
   </span>
 </article>
 
 <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+
   .title-case {
     text-transform: capitalize;
   }

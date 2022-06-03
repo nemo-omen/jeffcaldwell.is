@@ -3,12 +3,17 @@ const { post } = Astro.props;
 
 ---
 
-<a href={`${post.url ?? '' }`} class="post-item post-item-col">
-  <span class="p-name post-item-heading">{post.frontmatter.title}</span>
+<article class="post-item">
+
+  <h3 class="p-name post-item-heading">
+    <a href={`${post.url ?? '' }`}>
+      {post.frontmatter.title}
+    </a>
+  </h3>
   <span class="updated">
     Updated:
-    <time class="dt-published post-item-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month:
+    <time class="dt-published">{new Date(post.frontmatter.date).toLocaleDateString('en-US', {month:
       'long',
       day: 'numeric', weekday: 'long', year: 'numeric'})}</time>
   </span>
-</a>
+</article>
