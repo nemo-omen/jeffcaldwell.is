@@ -37,17 +37,33 @@
   <MentionsCount />
 
   <div class="mentions flow">
-    {#if fetchState !== 'nomore'}
-      <li>
-        <button class="fetch-more" on:click={fetchMore}>Load More Mentions</button>
-      </li>
+    {#if mentions.length === 0}
+      <div>
+        <p>No mentions yet</p>
+        <a href="https://twitter.com/intent/tweet/?text=Check%20out%20{target}"> Say something about it! </a>
+      </div>
     {:else}
-      <li>
-        No more mentions!
-        <a href="https://twitter.com/intent/tweet/?text=My%20thoughts%20on%20{target}">
-          Say something about this post
-        </a>
-      </li>
+      <ul>
+        {#each mentions as mention}
+          <li>
+            <div class="mention-data">
+              <a href={mention.data.url} target="_blank">
+                {mention.data.author.name}
+              </a>
+              <time>- {mention.data.published}</time>
+              <p>{@html mention.activity.sentence_html}</p>
+            </div>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+    {#if fetchState !== 'nomore'}
+      <button class="fetch-more" on:click={fetchMore}>Load More Mentions</button>
+    {:else}
+      <div>
+        <p>No more mentions!</p>
+        <a href="https://twitter.com/intent/tweet/?text=Check%20out%20{target}"> Say something about it! </a>
+      </div>
     {/if}
   </div>
 </section>
