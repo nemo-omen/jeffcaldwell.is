@@ -19,12 +19,9 @@
     "mermaid": "^9.1.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-katex": "^6.0.2",
-    "rehype-mathjax": "^4.0.2",
     "rehype-slug": "^5.0.1",
     "rehype-toc": "^3.0.2",
     "remark-math": "^5.1.1",
-    "remark-toc": "^8.0.1",
-    "remark-wiki-link": "^1.0.4",
     "svelte": "^3.47.0"
   }
 }
