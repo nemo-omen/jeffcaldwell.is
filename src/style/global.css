@@ -232,7 +232,18 @@ code:not(pre code) {
   transition: background-color var(--transition-default);
   max-width: 25ch;
   line-height: 1.25em;
+  position: relative;
+  padding-bottom: 0.125em;
   /* border-bottom: var(--space-3xs-2xs) solid var(--foreground); */
+}
+
+.page-heading::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  border-bottom: var(--space-3xs-2xs) solid var(--foreground);
+  width: 100%;
 }
 
 .site-nav {
