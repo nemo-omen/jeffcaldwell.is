@@ -8,7 +8,7 @@ const filteredChildren = children.filter((child) => child.children);
   <a href={`${note.url ?? '' }`} class="p-name post-item-heading">{note.frontmatter.title}</a>
   {filteredChildren.map((child) => <a class="title-case" href={child.path.replace('src/pages', ''
     )}>{child.name.replace('-', ' ')}</a>)}
-  <span>
+  <span class="updated">
     Updated: <time class="dt-published post-item-date">{new Date(note.frontmatter.updated).toLocaleDateString('en-US',
       {month:
       'long',

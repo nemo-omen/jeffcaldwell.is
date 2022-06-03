@@ -14,5 +14,8 @@ const sorted = posts.filter((post) => post.frontmatter.draft === false).sort((a,
     <PostFeature {post} />
     ))}
   </div>
-  : null}
+  : <p>Okay, so I haven't written any blog posts yet.</p>
+  <p>I promise I'm working on it!</p>
+  <p>Meanwhile, <a href="/notes">check out my notes</a>!</p>
+  }
 </Main>

@@ -92,9 +92,7 @@ header {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-s-m);
+  --flow-space: var(--space-s-m);
 }
 
 h1,
@@ -104,6 +102,7 @@ h4 {
   margin: 0;
   padding: 0;
   font-family: 'rebrand_txtsemibold';
+  margin: 0;
 }
 
 p {
@@ -148,6 +147,10 @@ a:focus {
   background-color: var(--highlight);
 }
 
+.list-link {
+  display: block;
+}
+
 pre, code {
   padding: 1rem;
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
@@ -157,7 +160,10 @@ code:not(pre code) {
   display: inline-block;
   background-color: var(--highlight);
   padding: 0 0.25em;
-  /* outline: 1px dotted var(--foreground); */
+}
+
+.updated, time {
+  font-size: var(--font-size--100);
 }
 
 .flow > * + * {
@@ -208,7 +214,10 @@ code:not(pre code) {
 }
 
 #site-brand {
-  font-family: 'rebrand_txtsemibold';
+  display: flex;
+  align-items: center !important;
+  justify-content: stretch;
+  /* font-family: 'rebrand_txtsemibold'; */
   transition: background-color var(--transition-default);
   text-decoration: none;
   letter-spacing: 0.025em;
@@ -216,8 +225,13 @@ code:not(pre code) {
 }
 
 #site-brand h1 {
+  font-family: 'rebrandtxt-semibold';
+  display: inline;
   font-size: var(--font-size-200);
-  padding: 1rem;
+  min-width: 100%;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0.5rem;
 }
 
 #site-brand:focus h1,
@@ -227,24 +241,24 @@ code:not(pre code) {
 }
 
 .page-heading {
+  overflow: visible;
   font-size: var(--font-size-200);
-  font-family: 'rebrand_dissemibold';
+  font-family: 'rebranddis-semibold';
   transition: background-color var(--transition-default);
   max-width: 25ch;
-  line-height: 1.25em;
-  position: relative;
-  padding-bottom: 0.125em;
-  /* border-bottom: var(--space-3xs-2xs) solid var(--foreground); */
+  /* line-height: 1.5; */
+  /* padding: 0 0 1rem 0; */
+  border-bottom: var(--space-3xs-2xs) solid var(--foreground);
 }
 
-.page-heading::after {
+/* .page-heading::after {
   position: absolute;
   bottom: 0;
   left: 0;
   content: '';
   border-bottom: var(--space-3xs-2xs) solid var(--foreground);
   width: 100%;
-}
+} */
 
 .site-nav {
   display: flex;
@@ -342,12 +356,6 @@ code:not(pre code) {
   align-self: center;
 }
 
-.content-list, .post-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-s-m);
-}
-
 .feature-post {
   display: flex;
   flex-direction: column;
@@ -390,8 +398,9 @@ code:not(pre code) {
 
 .post-item-heading {
   font-size: var(--font-size-200);
-  /* font-family: 'rebrand_txtbold'; */
+  font-family: 'rebrand_txtsemibold';
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .blog-content {

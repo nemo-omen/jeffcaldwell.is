@@ -16,11 +16,11 @@ const sortedNotes = notes.filter((note) => note.frontmatter.draft === false).sor
 
   <div class="page-grid" id="content">
     {sorted.length > 0 ?
-    <section class="content-list">
+    <section class="content-list flow">
       <h2 class="page-heading" id="writing">
         Writing
       </h2>
-      <div class="post-list">
+      <div class="post-list flow">
         {sorted.slice(0, 2).map((post) => (
         <PostFeature {post} />))}
         <a href="/writing" class="list-link">More writing</a>
@@ -29,14 +29,14 @@ const sortedNotes = notes.filter((note) => note.frontmatter.draft === false).sor
     : null}
 
     {sortedNotes.length > 0 ?
-    <section class="content-list">
+    <section class="content-list flow">
       <h2 class="page-heading" id="notes">
         Notes
       </h2>
-      <div class="post-list">
-        {sortedNotes.slice(0, 6).map((post) => (
+      <div class="post-list flow">
+        {sortedNotes.slice(0, 4).map((post) => (
         <PostListItem {post} />))}
-        <a href="/notes" class="list-link">More notes</a>
+        <a href="/notes" class="list-link">More Notes</a>
       </div>
     </section>
     : null}
