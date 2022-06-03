@@ -379,7 +379,8 @@ code:not(pre code) {
 
 .post-item-heading {
   font-size: var(--font-size-200);
-  font-family: 'rebrand_txtbold';
+  /* font-family: 'rebrand_txtbold'; */
+  font-weight: bold;
 }
 
 .blog-content {
