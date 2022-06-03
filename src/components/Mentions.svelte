@@ -5,6 +5,7 @@
   export let target;
 
   let page = 0;
+  let counts;
   const countUrl = `https://webmention.io/api/count.json?target=${target}/`;
   const wmUrl = `https://webmention.io/api/mentions?page=${page}&per-page=50&target=${target}/`;
 
@@ -17,6 +18,7 @@
       .then((x) => x.type);
 
     getMentions().then((x) => {
+      console.log(x);
       mentions = x;
       fetchState = 'done';
     });
