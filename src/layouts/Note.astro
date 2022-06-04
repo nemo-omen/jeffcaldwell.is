@@ -9,15 +9,12 @@ import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Mentions from '../components/Mentions.svelte';
 
-const key = import.meta.env.VITE_WEBMENTION_KEY;
 const { content } = Astro.props;
 const { pathname } = Astro.canonicalURL;
-let targetArray = pathname.split('/');
+const key = import.meta.env.VITE_WEBMENTION_KEY;
 let target = Astro.canonicalURL.href;
 
 const allNotes = import.meta.glob('../pages/notes/**/*.md');
-
-
 
 let notes = await Promise.all(
   Object.entries(allNotes).map(async ([key, note]) => {

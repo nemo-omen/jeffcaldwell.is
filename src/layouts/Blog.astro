@@ -5,7 +5,11 @@ import TwitterMeta from './TwitterMeta.astro';
 import OGMeta from './OGMeta.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Mentions from '$components/Mentions.svelte';
 const { content } = Astro.props;
+const { pathname } = Astro.canonicalURL;
+const key = import.meta.env.VITE_WEBMENTION_KEY;
+let target = Astro.canonicalURL.href;
 
 const allNotes = import.meta.glob('../pages/writing/**/*.md');
 
@@ -75,6 +79,9 @@ notes = notes.filter(note => {
       </div>
       }
     </article>
+    <div class="mentions flow">
+      <Mentions {key} {target} client:load />
+    </div>
   </main>
   <Footer />
 </body>
