@@ -1,14 +1,12 @@
 <script>
   import { onMount } from 'svelte';
-  import MentionsCount from './MentionsCount.svelte';
 
   export let target;
   export let key;
 
-  // const countUrl = `https://webmention.io/api/count?target=${target}&token=${key}&per-page=100/`;
   const countUrl = `https://webmention.io/api/count?target=${target}`;
   const wmUrl = `https://webmention.io/api/mentions.jf2?target=${target}&token=${key}/`;
-  const allSiteUrl = `https://webmention.io/api/mentions.jf2?domain=jeffcaldwell.is&token=${key}&per-page=100`;
+  // const allSiteUrl = `https://webmention.io/api/mentions.jf2?domain=jeffcaldwell.is&token=${key}&per-page=100`;
   let mentions = [];
   $: counts = {};
 
@@ -34,12 +32,12 @@
       .catch((error) => console.error(error));
   }
 
-  function getAllMentions() {
-    fetch(allSiteUrl)
-      .then((response) => response.json())
-      .then((allMentionsData) => console.log({ allMentionsData }))
-      .catch((error) => console.error(error));
-  }
+  // function getAllMentions() {
+  //   fetch(allSiteUrl)
+  //     .then((response) => response.json())
+  //     .then((allMentionsData) => console.log({ allMentionsData }))
+  //     .catch((error) => console.error(error));
+  // }
 
   onMount(() => {
     getMentions();
@@ -50,8 +48,6 @@
 
 <section class="mentions-container flow" id="web-mentions">
   <h2>WebMentions</h2>
-
-  <!-- <MentionsCount counts={counts.type} /> -->
 
   <div class="mentions">
     {#if mentions.length === 0}
@@ -136,8 +132,5 @@
 
   .mention-avatar {
     border-radius: 50%;
-  }
-  button {
-    padding: 0.125em 0.25em;
   }
 </style>

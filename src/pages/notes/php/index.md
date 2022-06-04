@@ -1,6 +1,6 @@
 ---
 title: PHP
-date: 2022-06-02 18:21:26
+pubDate: 2022-06-02 18:21:26
 updated: 2022-06-02 18:21:30
 layout: '$layouts/RootNote.astro'
 draft: false

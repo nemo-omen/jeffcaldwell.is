@@ -1,6 +1,6 @@
 ---
 title: Process
-date: 2022-05-30 10:32:43
+pubDate: 2022-05-30 10:32:43
 updated: 2022-05-30 10:55:55
 layout: '../../../../layouts/Note.astro'
 draft: false

@@ -45,14 +45,12 @@ notes = notes.sort((a, b) => {
   <main class="flow">
     <article class="h-entry blog-content">
       <h2 class="p-name page-heading">{content.title}</h2>
-      <p>
-        <time class="dt-published">{new Date(content.date).toLocaleDateString('en-US', {month: 'long', weekday: 'long',
-          day: 'numeric', year: 'numeric'})}</time>
-        , by
-        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">{author}</a>,
-        Last updated:
-        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', weekday:
-          'long', day: 'numeric', year: 'numeric'})}</time>
+      <p class="updated">
+        Updated on
+        <time class="dt-published">{new Date(content.updated).toLocaleDateString('en-US', {month: 'long', day:
+          'numeric', year: 'numeric'})}</time>
+        by
+        <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">Jeff Caldwell</a>,
       </p>
       <div class="e-content flow">
         <slot />

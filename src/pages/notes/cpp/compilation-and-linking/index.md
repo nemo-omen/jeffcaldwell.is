@@ -1,6 +1,6 @@
 ---
 title: Compilation and Linking
-date: 2022-06-01 10:07:35
+pubDate: 2022-06-01 10:07:35
 updated: 2022-06-02 07:53:18
 layout: '$layouts/Note.astro'
 draft: false

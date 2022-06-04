@@ -1,6 +1,6 @@
 ---
 title: Getting Started with PHP
-date: 2022-06-02 19:28:41
+pubDate: 2022-06-02 19:28:41
 updated: 2022-06-02 19:28:46
 layout: '$layouts/Note.astro'
 draft: false
