@@ -48,7 +48,7 @@ Now go sign in to whichever services you linked to from your site. Update your p
   </li>
 </ul>
 
-All done? Head over to <a hraf="https://indiewebify.me/" target="_blank">IndieWebify.me</a> and go to Step 2. Stick your site's URL into the input field and click `Test`. If everything goes right you should see something like this:
+All done? Head over to <a href="https://indiewebify.me/" target="_blank">IndieWebify.me</a> and go to Step 2. Stick your site's URL into the input field and click `Test`. If everything goes right you should see something like this:
 
 ![Web Sign-in verification on indiewebify.me](/images/WebMentions_RelMeVerification.png)
 
