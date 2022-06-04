@@ -12,7 +12,6 @@ import Mentions from '../components/Mentions.svelte';
 const key = import.meta.env.VITE_WEBMENTION_KEY;
 const { content } = Astro.props;
 const { pathname } = Astro.canonicalURL;
-console.log(Astro.canonicalURL);
 let targetArray = pathname.split('/');
 let target = Astro.canonicalURL.href;
 

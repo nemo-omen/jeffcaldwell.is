@@ -28,7 +28,7 @@
     fetch(countUrl)
       .then((response) => response.json())
       .then((countData) => {
-        console.log({ countData });
+        // console.log({ countData });
         counts = { ...countData };
       })
       .catch((error) => console.error(error));
