@@ -53,7 +53,6 @@
     {#if mentions.length === 0}
       <div>
         <p>No mentions yet</p>
-        <a href="https://twitter.com/intent/tweet/?text=Check%20out%20{target}"> Say something about it! </a>
       </div>
     {:else}
       <ul class="flow">
@@ -102,6 +101,9 @@
       </ul>
     {/if}
   </div>
+  <a href="https://twitter.com/intent/tweet/?text=Check%20out%20{target}" style="display: block">
+    Say something about this post!
+  </a>
 </section>
 
 <style>

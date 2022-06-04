@@ -2,17 +2,13 @@
 import '../style/global.css';
 import JsonLD from '../components/JsonLD.astro';
 import BaseHead from './BaseHead.astro';
-import TwitterMeta from './TwitterMeta.astro';
-import OGMeta from './OGMeta.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Mentions from '../components/Mentions.svelte';
-import TOC from '../components/TOC.svelte';
 import { Markdown } from 'astro/components';
 
 const { content } = Astro.props;
-const headers = content.astro.headers;
 const intro = content.intro;
 
 
@@ -42,7 +38,9 @@ notes = notes.filter(note => {
 <!DOCTYPE html>
 <html lang="en">
 <BaseHead title={content.title}>
-  <JsonLD {content} />
+  <!-- <script type="application/ld+json">
+    <JsonLD {content} />
+  </script> -->
 </BaseHead>
 
 <body>
@@ -82,7 +80,7 @@ notes = notes.filter(note => {
       </div>
       }
     </article>
-    <div class="mentions flow">
+    <div class="flow">
       <Mentions {key} {target} client:visible />
     </div>
   </main>

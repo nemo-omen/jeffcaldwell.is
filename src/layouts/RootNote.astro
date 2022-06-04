@@ -9,8 +9,6 @@ import Footer from '../components/Footer.astro';
 import PostListItem from '../components/PostListItem.astro';
 
 const { content } = Astro.props;
-const author = 'Jeff Caldwell';
-
 const allNotes = await Astro.glob('../pages/notes/**/*.md');
 let notes = [];
 
@@ -37,7 +35,7 @@ notes = notes.sort((a, b) => {
 <!DOCTYPE html>
 <html lang="en">
 <BaseHead title={content.title}>
-  <JsonLD {content} />
+  <!-- <JsonLD {content} /> -->
 </BaseHead>
 
 <body>

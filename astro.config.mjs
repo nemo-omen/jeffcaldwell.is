@@ -3,6 +3,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vercel from '@astrojs/vercel';
 import svelte from '@astrojs/svelte';
+import { getHighlighter } from 'shiki';
+
 
 const __fileName = fileURLToPath(import.meta.url);
 const __dirname = dirname(__fileName);
@@ -14,12 +16,11 @@ export default defineConfig({
    site: 'https://jeffcaldwell.is',
    markdown: {
       remarkPlugins: [
-         'remark-math',
          'remark-smartypants',
          'remark-gfm',
+         'remark-math',
       ],
       rehypePlugins: [
-         ['rehype-katex', {output: 'mathml'}],
          'rehype-autolink-headings',
          'rehype-slug',
          ['rehype-toc', {
@@ -51,13 +52,15 @@ export default defineConfig({
 
                return tocSection;
             }
-         }]
+         }],
+         ['rehype-katex', {output: 'mathml'}],
+         // 'rehype-mathjax',
       ],
       drafts: true,
       shikiConfig: {
          // theme: 'monokai',
          wrap: true
-      }
+      },
    },
    vite: {
       resolve: {

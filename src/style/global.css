@@ -119,9 +119,9 @@ ul {
   --flow-space: var(--space-3xs-2xs);
 }
 
-.toc > * + *, .toc-level > * + * {
+/* .toc > * + *, .toc-level > * + * {
   margin-top: var(--flow-space);
-}
+} */
 
 dt {
   font-weight: bold;
@@ -165,9 +165,15 @@ a:focus {
   display: block;
 }
 
-pre, code {
+pre, xmp {
   padding: 1rem;
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+xmp {
+  background: var(--foreground);
+  color: var(--background);
+  white-space: pre-wrap;
 }
 
 code:not(pre code) {

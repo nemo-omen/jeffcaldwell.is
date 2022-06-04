@@ -11,8 +11,8 @@
   "devDependencies": {
     "@astrojs/svelte": "^0.1.4",
     "@astrojs/vercel": "^0.1.4",
-    "astro": "^1.0.0-beta.38",
-    "vite": "^2.9.0"
+    "astro": "^1.0.0-beta.40",
+    "vite": "^2.9.9"
   },
   "dependencies": {
     "@astrojs/rss": "^0.2.0",
@@ -20,9 +20,11 @@
     "mermaid": "^9.1.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-katex": "^6.0.2",
+    "rehype-mathjax": "^4.0.2",
     "rehype-slug": "^5.0.1",
     "rehype-toc": "^3.0.2",
     "remark-math": "^5.1.1",
-    "svelte": "^3.47.0"
+    "shiki": "^0.10.1",
+    "svelte": "^3.48.0"
   }
 }
