@@ -1,29 +1,44 @@
 <script>
+  import { onMount } from 'svelte';
   import Icon from './Icon.svelte';
-  export let target;
-  const wmCountUrl = `https://webmention.io/api/count.json?target=${target}`;
 
-  const counts = fetch(wmCountUrl)
-    .then((response) => response.json())
-    .then((x) => x.type);
+  export let counts;
+  $: data = {};
+
+  $: mentions = 0;
+  $: likes = 0;
+  $: reposts = 0;
+  $: replies = 0;
+
+  onMount(() => {
+    // data = { ...counts };
+    mentions = counts.mention || 0;
+    likes = counts.like || 0;
+    reposts = counts.repost || 0;
+    replies = counts.reply || 0;
+  });
 </script>
 
-<div class="mentions-count">
-  {#await counts}
-    <p>Loading Counts</p>
-  {:then data}
-    {#if data === undefined}
-      <p>Failed to Load Counts</p>
-    {:else}
-      <div class="count">
-        <Icon pathName="love" />{data.like + data.repost || 0}
-      </div>
-      <div class="count">
-        <Icon pathName="comment" />{data.mention + data.reply || 0}
-      </div>
-    {/if}
-  {/await}
-</div>
+{#if counts}
+  <div class="mentions-count">
+    <div class="count">
+      <Icon pathName="love" label="Likes" />{likes}
+      <span class="icon-title">Likes</span>
+    </div>
+    <div class="count">
+      <Icon pathName="repeat" label="Reposts" />{reposts}
+      <span class="icon-title">Reposts</span>
+    </div>
+    <div class="count">
+      <Icon pathName="comment" label="Mentions" />{mentions}
+      <span class="icon-title">Mentions</span>
+    </div>
+    <div class="count">
+      <Icon pathName="reply" label="Replies" />{replies}
+      <span class="icon-title">Replies</span>
+    </div>
+  </div>
+{/if}
 
 <style>
   .mentions-count {
@@ -32,6 +47,10 @@
   }
   .count {
     display: flex;
+    align-items: center;
     gap: 0.25em;
+  }
+  .icon-title {
+    font-size: var(--font-size--100);
   }
 </style>

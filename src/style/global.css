@@ -132,6 +132,12 @@ dd {
   padding-inline-start: 1em;
 }
 
+blockquote {
+  padding-inline-start: 1em;
+  border-inline-start: 4px solid var(--accent);
+  font-style: italic;
+}
+
 :focus {
   outline: 2px solid transparent;
   outline-offset: -2px;
