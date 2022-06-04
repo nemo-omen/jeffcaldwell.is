@@ -76,22 +76,24 @@ Now head over to <a href="https://webmention.io" target="_blank">webmention.io</
 
 If you're just working with HTML and CSS you can use a handy counter provided by the folks at webmention.io to display the number of webmentions your site has received.
 
-First, you'll need jQuery. Grab a [version you like](https://releases.jquery.com/) and add it in a `script` tag at the top of your page's `body`
-
-Now, add this `&lt;span&gt;` where you want the counter to appear (replace `https://example.com` with your site's URL):
+First, you'll need jQuery. Grab a [version you like](https://releases.jquery.com/) and add it in a `<script>` tag at the top of your page's `<body>`
 
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 ```
 
+Now, add this `<span>` where you want the counter to appear (replace `https://example.com` with your site's URL):
+
 ```html
 <span data-webmention-count data-url="https://example.com/page/100"></span> mentions
 ```
+
+Finally, add another `script` tag at the bottom of your page with a `src` of `https://webmention.io/js/mentions.js`.
 
 ```html
 <script src="https://webmention.io/js/mentions.js"></script>
 ```
 
-Finally, add another `script` tag at the bottom of your page with a `src` of `https://webmention.io/js/mentions.js`.
+That's it! You should now have a fany webmention counter on your site! Next up, we add [Bridgy](https://brid.gy/) so we can start polling for mentions on social networks.
 
-Please forgive me for not just including the HTML for the two script tags. There's something fishy happening with my syntax highlighter and it's trying to execute the JS examples when I put them on the page.
+__This is an ongoing note.__ Jeff will update it soon with instructions for adding client-side webmentions in Astro with Svelte.
