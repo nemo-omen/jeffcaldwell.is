@@ -8,9 +8,14 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Mentions from '../components/Mentions.svelte';
+import TOC from '../components/TOC.svelte';
+import { Markdown } from 'astro/components';
 
 const { content } = Astro.props;
-const { pathname } = Astro.canonicalURL;
+const headers = content.astro.headers;
+const intro = content.intro;
+
+
 const key = import.meta.env.VITE_WEBMENTION_KEY;
 let target = Astro.canonicalURL.href;
 
@@ -54,6 +59,15 @@ notes = notes.filter(note => {
         <a rel="author" class="p-author h-card" href="https://jeffcaldwell.is/about">Jeff Caldwell</a>,
       </p>
       <div class="e-content flow">
+        {() => {
+        if (intro !== undefined) {
+        return <div class="intro" style="margin-bottom: var(--space-s-m);">
+          <Markdown>
+            {intro}
+          </Markdown>
+        </div>
+        }
+        }}
         <slot />
       </div>
       { !notes.length ? null : <div>
