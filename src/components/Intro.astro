@@ -3,8 +3,8 @@
 ---
 
 <div class="intro flow h-card">
-  <a href="/about">
-    <img class="intro-image avatar" src="/images/JeffCaldwell_Cropped.jpg" width="256" height="256"
+  <a href="/about" class="intro-image-link">
+    <img class="avatar intro-image p-photo" src="/images/JeffCaldwell_Cropped.jpg" width="256" height="256"
       alt="Jeff Caldwell, an increasingly middle-aged white man with wavy brown hair and a somewhat short beard." />
   </a>
   <div class="intro-text">
@@ -41,11 +41,26 @@
 </div>
 
 <style>
+  .intro-image-link {
+    align-self: center;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color var(--transition-default);
+  }
+
   .avatar {
     border-radius: 50%;
     margin: 0 auto;
     width: var(--space-3xl-4xl);
     height: var(--space-3xl-4xl);
+    /* border: 2px solid var(--foreground); */
+    box-shadow: var(--shadow-default);
+    transition: box-shadow var(--transition-default);
+  }
+
+  .intro-image-link:hover .avatar {
+    box-shadow: var(--shadow-hover);
+    /* border-color: var(--foreground); */
   }
 
   /* @media screen and (min-width: 700px) {
