@@ -246,7 +246,7 @@ code:not(pre code) {
 #site-brand h1 {
   font-family: 'rebrandtxt-semibold';
   display: inline;
-  font-size: var(--font-size-200);
+  font-size: var(--font-size-500);
   min-width: 100%;
   line-height: 1.2;
   margin: 0;
@@ -340,6 +340,10 @@ code:not(pre code) {
 #skip-link:focus {
   transform: translateY(0%);
   opacity: 1;
+}
+
+.preamble {
+  font-size: var(--font-size-200);
 }
 
 .post-grid,
@@ -460,6 +464,10 @@ td {
     /* border-bottom: 2px solid var(--foreground); */
   }
 
+  #site-brand h1 {
+    font-size: var(--font-size-200);
+  }
+
   .page-heading {
     font-size: var(--font-size-400);
   }
@@ -485,7 +493,7 @@ td {
   }
 }
 
-/* @media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root {
     --foreground: var(--light);
     --background: var(--dark);
@@ -497,4 +505,4 @@ td {
   .feature-post-heading {
     border-bottom: var(--space-3xs-2xs) solid var(--foreground);
   }
-} */
+}
