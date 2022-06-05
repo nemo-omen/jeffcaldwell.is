@@ -2,32 +2,56 @@
 
 ---
 
-<div class="intro flow">
-  <p class="preamble">
-    I'm Jeff Caldwell, a computer science student, web developer, and small-city journalist who makes websites.
-    Sometimes I draw
-    pictures.
-  </p>
+<div class="intro flow h-card">
+  <a href="/about">
+    <img class="intro-image avatar" src="/images/JeffCaldwell_Cropped.jpg" width="256" height="256"
+      alt="Jeff Caldwell, an increasingly middle-aged white man with wavy brown hair and a somewhat short beard." />
+  </a>
+  <div class="intro-text">
+    <div class="intro-preamble flow">
+      <p>
+        I'm <a href="/" class="p-name"><span class="p-given-name">Jeff</span> <span
+            class="p-family-name">Caldwell</span></a>, a computer science student, web developer, and small-city
+        journalist who makes websites.
+      </p>
+      <p>
+        Sometimes I draw pictures.
+      </p>
+    </div>
+    <div class="intro-additional flow">
+      <p>
+        This is my personal place on the web. It's where I <a href="https://www.swyx.io/learn-in-public">learn in
+          public</a>.
+      </p>
 
-  <p>
-    This is my personal place on the web. It's where I <a href="https://www.swyx.io/learn-in-public">learn in
-      public</a>.
-  </p>
+      <p><a href="/notes">Notes</a> are where I post quick writing and stray thoughts. It's my <a
+          href="https://maggieappleton.com/garden-history">digital garden</a>
+        and whatever you read in there should <em>probably</em> be considered incomplete. <a href="/writing">Writing</a>
+        is
+        where longer-form, more complete articles are posted.
+      </p>
+      <p>
+        You can find me elsewhere on the web at <a href="https://twitter.com/trainingm0ntage" rel="me">Twitter</a>, <a
+          href="https://indieweb.social/web/@trainingmontage" rel="me">Mastodon</a>, and <a
+          href="https://github.com/nemo-omen" rel="me">GitHub</a>.
+      </p>
+    </div>
+  </div>
 
-  <p><a href="/notes">Notes</a> are where I post quick writing and stray thoughts. It's my <a
-      href="https://maggieappleton.com/garden-history">digital garden</a>
-    and whatever you read in there should <em>probably</em> be considered incomplete. <a href="/writing">Writing</a> is
-    where longer-form, more complete articles are posted.
-  </p>
-  <p>
-    You can find me elsewhere on the web at <a href="https://twitter.com/trainingm0ntage" rel="me">Twitter</a>, <a
-      href="https://indieweb.social/web/@trainingmontage" rel="me">Mastodon</a>, and <a
-      href="https://github.com/nemo-omen" rel="me">GitHub</a>.
-  </p>
 </div>
 
 <style>
-  p {
-    max-width: 65ch;
+  .avatar {
+    border-radius: 50%;
+    margin: 0 auto;
+    width: var(--space-3xl-4xl);
+    height: var(--space-3xl-4xl);
   }
+
+  /* @media screen and (min-width: 700px) {
+    .avatar {
+      width: 256px;
+      height: 256px;
+    }
+  } */
 </style>

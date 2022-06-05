@@ -24,7 +24,8 @@
   --space-xl: clamp(3.94rem, calc(3.72rem + 1.10vw), 4.50rem);
   --space-2xl: clamp(5.25rem, calc(4.96rem + 1.46vw), 6.00rem);
   --space-3xl: clamp(7.88rem, calc(7.44rem + 2.20vw), 9.00rem);
-
+  --space-4xl: clamp(10.50rem, calc(9.91rem + 2.93vw), 12.00rem)
+  
   /* One-up pairs */
   --space-3xs-2xs: clamp(0.31rem, calc(0.14rem + 0.85vw), 0.75rem);
   --space-2xs-xs: clamp(0.69rem, calc(0.52rem + 0.85vw), 1.13rem);
@@ -34,11 +35,13 @@
   --space-l-xl: clamp(2.63rem, calc(1.89rem + 3.66vw), 4.50rem);
   --space-xl-2xl: clamp(3.94rem, calc(3.13rem + 4.02vw), 6.00rem);
   --space-2xl-3xl: clamp(5.25rem, calc(3.79rem + 7.32vw), 9.00rem);
+  --space-3xl-4xl: clamp(7.88rem, calc(6.27rem + 8.05vw), 12.00rem);
 
   /* Custom pairs */
   --space-s-l: clamp(1.31rem, calc(0.65rem + 3.29vw), 3.00rem);
+  --space-3xl-4xl: clamp(7.88rem, calc(6.27rem + 8.05vw), 12.00rem);
 
-  --flow-space: var(--space-s-m);
+  --flow-space: var(--space-m-l);
 
   --light: #f0eff4;
   --dark: #0E131F;
@@ -75,14 +78,17 @@ body {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: var(--space-s-m);
+  gap: var(--flow-space);
   width: 100vw;
   height: 100vh;
   color: var(--foreground);
   background-color: var(--background);
 }
 
-main,
+main {
+  padding-inline: var(--space-xs);
+}
+
 footer {
   padding: var(--space-xs);
 }
@@ -342,8 +348,15 @@ code:not(pre code) {
   opacity: 1;
 }
 
-.preamble {
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--flow-space);
+}
+
+.intro-preamble p {
   font-size: var(--font-size-200);
+  text-align: center;
 }
 
 .post-grid,
@@ -430,6 +443,10 @@ td {
 }
 
 @media screen and (min-width: 700px) {
+  :root {
+    --flow-space: var(--space-l-xl);
+  }
+
   body {
     justify-content: stretch;
   }
@@ -444,7 +461,10 @@ td {
     text-align: unset;
   }
 
-  main,
+  main {
+    padding-inline: 1.5rem;
+  }
+
   footer {
     padding: 1.5rem;
   }
@@ -471,6 +491,24 @@ td {
   .page-heading {
     font-size: var(--font-size-400);
   }
+
+  .intro {
+    --flow-space: var(--space-l-xl);
+  }
+
+  .intro-text {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-l-xl);
+  }
+
+  .intro-preamble p {
+    text-align: initial;
+  }
+
+  .intro-additional, .intro-preamble {
+    --flow-space: var(--space-m-l);
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -495,6 +533,7 @@ td {
 
 @media screen and (prefers-color-scheme: dark) {
   :root {
+    --red: #ED254E;
     --foreground: var(--light);
     --background: var(--dark);
     --highlight: var(--red);
