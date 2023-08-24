@@ -8,6 +8,9 @@ dependencies:
   astro:
     specifier: ^2.10.14
     version: 2.10.14
+  open-props:
+    specifier: ^1.5.14
+    version: 1.5.14
 
 packages:
 
@@ -2430,6 +2433,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       mimic-fn: 4.0.0
+    dev: false
+
+  /open-props@1.5.14:
+    resolution: {integrity: sha512-cB7GgDNk5DRCbrC2iGX97ZKXi0zXSlvTXfuCpl/Qzq8dhhyEPi0TbYvmpkcvra4hTJg5S+BWO7qBVU0UKtcMkg==}
     dev: false
 
   /open@9.1.0:

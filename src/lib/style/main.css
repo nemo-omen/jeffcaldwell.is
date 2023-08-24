@@ -1,0 +1,46 @@
+@import "open-props/style";
+
+
+
+
+:root {
+  --font-mono: 'Berkeley Mono', 'Monaco' , 'Cascadia Mono' , 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace','Source Code Pro','Fira Mono','Droid Sans Mono','Courier New', monospace;
+  --font-serif: "IBM Plex Serif",Charter,Bitstream Charter,Sitka Text,Cambria,serif;
+  --font-body: var(--font-serif);
+
+  --color-5: hsl(149 100% 1%);
+  --color-4: hsl(149 89% 8%);
+  --color-3: hsl(149 69% 28%);
+  --color-2: hsl(149 39% 58%);
+  --color-1: hsl(149 49% 68%);
+
+  
+  /*colors*/
+  --color-body: var(--color-1);
+  --color-heading: var(--color-2);
+  --color-link: var(--color-1);
+  --color-hover: var(--color-3);
+  --color-background: var(--color-5);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-body);
+
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-heading);
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-hover);
+}
