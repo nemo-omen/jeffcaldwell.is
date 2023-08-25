@@ -39,17 +39,23 @@ body {
   flex-direction: column;
   align-items: stretch;
   gap: var(--size-8);
+  padding: 0;
+  margin: 0;
 }
 
-header,
+.header-inner,
 main,
 footer {
   display: grid;
-  grid-template-columns: 20rem auto;
+  grid-template-columns: 20rem 1fr;
   justify-content: start;
   width: min(65rem, 100%);
   margin: 0 auto;
   gap: var(--size-10);
+}
+
+header {
+  padding: var(--size-3);
 }
 
 h1,
