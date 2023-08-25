@@ -1,8 +1,5 @@
 @import "open-props/style";
 
-
-
-
 :root {
   --font-mono: 'Berkeley Mono', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --font-serif: "IBM Plex Serif", Charter, Bitstream Charter, Sitka Text, Cambria, serif;
@@ -50,7 +47,6 @@ footer {
   display: grid;
   grid-template-columns: 20rem auto;
   justify-content: start;
-  align-items: baseline;
   width: min(65rem, 100%);
   margin: 0 auto;
   gap: var(--size-10);

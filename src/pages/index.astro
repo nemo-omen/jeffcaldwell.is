@@ -12,7 +12,7 @@ import Card from '../components/Card.astro';
   </header>
   <main>
     <aside class="sidebar">
-      <span class="menu-label" id="main-nav-label"> </span>
+      <span class="menu-label" id="main-nav-label">Main Menu</span>
       <nav>
         <ul>
           <li><a href="#">One</a></li>
@@ -21,15 +21,15 @@ import Card from '../components/Card.astro';
         </ul>
       </nav>
     </aside>
-    <p>
-      This is some body text and <a href="#">this is a link.</a> Good to see them in context.
-    </p>
+    <section class="content">
+      <p>This is some content</p>
+    </section>
   </main>
 </Layout>
 
 <style>
   header {
-    border-bottom: 2px solid var(--color-body);
+    border-bottom: 1px solid var(--color-body);
     margin-botom: var(--size-6);
   }
 
@@ -38,43 +38,53 @@ import Card from '../components/Card.astro';
     height: var(--size-6);
     background-color: var(--red-3);
   }
+
   header h1 {
     font-size: var(--size-4);
     font-family: var(--font-mono);
     line-height: 1;
   }
+
   header h1 a {
     text-decoration: none;
   }
 
-  .sidebar {
+  .sidebar,
+  .content {
     position: relative;
+    border: 1px solid var(--color-body);
+  }
+
+  .sidebar {
     font-family: var(--font-mono);
   }
 
   .sidebar::before,
-  .sidebar::after {
+  .sidebar::after,
+  .content::before,
+  .content::after {
     content: '';
     position: absolute;
     display: block;
-    top: 1rem;
-    bottom: 1rem;
+    top: var(--size-2);
+    bottom: var(--size-2);
     width: 1rem;
     background-color: var(--color-background);
     z-index: 100;
   }
 
-  .sidebar::before {
+  .sidebar::before,
+  .content::before {
     left: calc(0.5rem * -1);
   }
 
-  .sidebar::after {
+  .sidebar::after,
+  .content::after {
     right: calc(0.5rem * -1);
   }
 
-  .sidebar nav {
-    border: 1px solid var(--color-body);
-    /* border-inline: 2px solid var(--color-background); */
+  .sidebar nav,
+  .content {
     padding: 1rem;
   }
 
@@ -89,6 +99,14 @@ import Card from '../components/Card.astro';
 
   .sidebar nav ul li a {
     display: block;
-    /* font-family: var(--font-mono); */
+  }
+
+  .menu-label {
+    display: inline-block;
+    padding-inline: var(--size-2);
+    margin-inline: var(--size-2);
+    position: absolute;
+    top: -0.75rem;
+    background-color: var(--color-background);
   }
 </style>
