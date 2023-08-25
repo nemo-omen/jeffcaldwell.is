@@ -4,16 +4,91 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Welcome to Astro.">
+  <header>
+    <span class="logo"></span>
+    <h1>
+      <a href="/"> Jeff Caldwell</a>
+    </h1>
+  </header>
   <main>
-    <h1>Jeff Caldwell</h1>
-    <p>This is some body text</p>
-    <a href="#">This is a link</a>
+    <aside class="sidebar">
+      <span class="menu-label" id="main-nav-label"> </span>
+      <nav>
+        <ul>
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <p>
+      This is some body text and <a href="#">this is a link.</a> Good to see them in context.
+    </p>
   </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
+  header {
+    border-bottom: 2px solid var(--color-body);
+    margin-botom: var(--size-6);
+  }
+
+  .logo {
+    width: var(--size-6);
+    height: var(--size-6);
+    background-color: var(--red-3);
+  }
+  header h1 {
+    font-size: var(--size-4);
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+  header h1 a {
+    text-decoration: none;
+  }
+
+  .sidebar {
+    position: relative;
+    font-family: var(--font-mono);
+  }
+
+  .sidebar::before,
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 1rem;
+    bottom: 1rem;
+    width: 1rem;
+    background-color: var(--color-background);
+    z-index: 100;
+  }
+
+  .sidebar::before {
+    left: calc(0.5rem * -1);
+  }
+
+  .sidebar::after {
+    right: calc(0.5rem * -1);
+  }
+
+  .sidebar nav {
+    border: 1px solid var(--color-body);
+    /* border-inline: 2px solid var(--color-background); */
     padding: 1rem;
+  }
+
+  .sidebar nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
+
+  .sidebar nav ul li a {
+    display: block;
+    /* font-family: var(--font-mono); */
   }
 </style>

@@ -4,31 +4,57 @@
 
 
 :root {
-  --font-mono: 'Berkeley Mono', 'Monaco' , 'Cascadia Mono' , 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace','Source Code Pro','Fira Mono','Droid Sans Mono','Courier New', monospace;
-  --font-serif: "IBM Plex Serif",Charter,Bitstream Charter,Sitka Text,Cambria,serif;
+  --font-mono: 'Berkeley Mono', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-serif: "IBM Plex Serif", Charter, Bitstream Charter, Sitka Text, Cambria, serif;
   --font-body: var(--font-serif);
 
-  --color-5: hsl(149 100% 1%);
-  --color-4: hsl(149 89% 8%);
-  --color-3: hsl(149 69% 28%);
-  --color-2: hsl(149 39% 58%);
-  --color-1: hsl(149 49% 68%);
+  --green-2: hsl(149 39% 58%);
 
-  
+  --green-5: #000a04;
+  --green-4: #39724f;
+  --green-3: #509e6e;
+  --green-2: #6BBF8B;
+  --green-1: #8ddeac;
+
+  --red-5: #2d0c06;
+  --red-4: #c9503a;
+  --red-3: #ff6347;
+  --red-2: #fc816b;
+  --red-1: #ffa494;
   /*colors*/
-  --color-body: var(--color-1);
-  --color-heading: var(--color-2);
-  --color-link: var(--color-1);
-  --color-hover: var(--color-3);
-  --color-background: var(--color-5);
+  --color-body: var(--green-1);
+  --color-heading: var(--green-2);
+  --color-link: var(--green-1);
+  --color-hover: var(--red-3);
+  --color-background: var(--green-5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-body);
-
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--size-8);
 }
 
+header,
+main,
+footer {
+  display: grid;
+  grid-template-columns: 20rem auto;
+  justify-content: start;
+  align-items: baseline;
+  width: min(65rem, 100%);
+  margin: 0 auto;
+  gap: var(--size-10);
+}
 
 h1,
 h2,
@@ -39,8 +65,12 @@ h4 {
 
 a {
   color: var(--color-link);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 0.125em;
+  padding-inline: 0.125em;
 }
 
 a:hover {
-  color: var(--color-hover);
+  background-color: var(--color-link);
+  color: var(--color-background);
 }
