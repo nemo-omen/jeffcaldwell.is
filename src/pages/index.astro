@@ -14,13 +14,45 @@ import Card from '../components/Card.astro';
   </header>
   <main>
     <aside class="sidebar">
-      <span class="menu-label" id="main-nav-label">Main Menu</span>
-      <nav>
-        <ul>
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
+      <nav id="main-nav" aria-labelledby="main-nav-label">
+        <ol class="main-nav-list">
+          <label class="menu-label" id="main-nav-label"> Main Menu</label>
+          <li class="nav-menu-list">
+            <a href="#"> 00-10 Personal</a>
+            <ol class="nav-menu" aria-describedby="meta-nav-label" data-start="00">
+              <li class="nav-menu-item"><a href="#">About</a></li>
+              <li class="nav-sub">
+                <ol class="nav-sub-menu">
+                  <li class="nav-sub-menu-item"><a href="#">About Jeff</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Timeline</a></li>
+                </ol>
+              </li>
+              <li class="nav-menu-item"><a href="#">Three</a></li>
+            </ol>
+          </li>
+          <li class="nav-menu-list">
+            <a href="#"> 10-19 Writing</a>
+            <ol class="nav-menu" aria-describedby="writing-nav-label" data-start="10">
+              <li class="nav-menu-item"><a href="#">One</a></li>
+              <li class="nav-sub">
+                <ol class="nav-sub-menu">
+                  <li class="nav-sub-menu-item"><a href="#">About Jeff</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Timeline</a></li>
+                </ol>
+              </li>
+              <li class="nav-menu-item"><a href="#">Two</a></li>
+              <li class="nav-menu-item"><a href="#">Three</a></li>
+            </ol>
+          </li>
+          <li class="nav-menu-list">
+            <a href="#">20-29 Dev</a>
+            <ol class="nav-menu" aria-describedby="dev-nav-label" data-start="20">
+              <li class="nav-menu-item"><a href="#">Projects</a></li>
+              <li class="nav-menu-item"><a href="#">Two</a></li>
+              <li class="nav-menu-item"><a href="#">Three</a></li>
+            </ol>
+          </li>
+        </ol>
       </nav>
     </aside>
     <section class="content">
@@ -38,7 +70,7 @@ import Card from '../components/Card.astro';
   .logo {
     width: var(--size-6);
     height: var(--size-6);
-    background-color: var(--red-3);
+    background-color: var(--orange-4);
   }
 
   header h1 {
@@ -51,64 +83,178 @@ import Card from '../components/Card.astro';
     text-decoration: none;
   }
 
-  .sidebar,
-  .content {
-    position: relative;
-    border: 1px solid var(--color-body);
-  }
-
   .sidebar {
     font-family: var(--font-mono);
   }
 
-  .sidebar::before,
-  .sidebar::after,
-  .content::before,
-  .content::after {
+  #main-nav {
+    position: relative;
+    margin-block: var(--size-4);
+    padding: 0;
+    border: 1px solid var(--color-body);
+  }
+
+  #main-nav::before,
+  #main-nav::after {
     content: '';
+    width: 0.25rem;
+    background-color: var(--color-background);
     position: absolute;
-    display: block;
     top: var(--size-2);
     bottom: var(--size-2);
-    width: 1rem;
-    background-color: var(--color-background);
-    z-index: 100;
   }
 
-  .sidebar::before,
-  .content::before {
-    left: calc(0.5rem * -1);
+  #main-nav::before {
+    left: -0.25rem;
   }
 
-  .sidebar::after,
-  .content::after {
-    right: calc(0.5rem * -1);
-  }
-
-  .sidebar nav,
-  .content {
-    padding: 1rem;
-  }
-
-  .sidebar nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-  }
-
-  .sidebar nav ul li a {
-    display: block;
+  #main-nav::after {
+    right: -0.25rem;
   }
 
   .menu-label {
+    position: absolute;
     display: inline-block;
     padding-inline: var(--size-2);
     margin-inline: var(--size-2);
-    position: absolute;
-    top: -0.75rem;
     background-color: var(--color-background);
+    top: -0.75rem;
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding-inline: 0;
+  }
+
+  ol li {
+    margin: 0;
+  }
+
+  .main-nav-list {
+    margin-block-start: var(--size-2);
+    margin-block-end: var(--size-3);
+  }
+
+  .main-nav-list > li {
+    padding-inline: var(--size-3);
+  }
+
+  .main-nav-list > li > a {
+    display: block;
+  }
+
+  .main-nav-list > * + * {
+    margin-block-start: var(--size-2);
+  }
+
+  .nav-sub {
+    padding: 0;
+  }
+
+  /**
+  * Top-level nav lists
+  */
+  .nav-menu {
+    border-top: none;
+    position: relative;
+    padding-block-start: var(--size-2);
+  }
+
+  .nav-menu[data-start='00'] {
+    counter-reset: nav-menu-counter -1;
+  }
+
+  .nav-menu[data-start='10'] {
+    counter-reset: nav-menu-counter 9;
+  }
+
+  .nav-menu[data-start='20'] {
+    counter-reset: nav-menu-counter 19;
+  }
+
+  /**
+  * Nested nav menus
+  */
+  .nav-sub-menu {
+    counter-reset: nav-sub-menu-counter;
+    padding-inline: none;
+  }
+
+  .nav-sub .nav-sub-menu .nav-sub-menu-item {
+    padding-inline-start: 3.75rem;
+  }
+
+  .nav-sub-menu-item a {
+    text-decoration: none;
+  }
+
+  /**
+  * List item that holds nested ol
+  */
+  .nav-sub {
+    list-style-type: none;
+  }
+
+  /**
+  * li elements within nav-menu elements
+  */
+  .nav-menu-item {
+    counter-increment: nav-menu-counter;
+    margin-block-end: var(--size-2);
+    padding-inline: var(--size-7);
+  }
+
+  .nav-menu .nav-menu-item::before {
+    content: counter(nav-menu-counter);
+    margin-inline-end: 0.5rem;
+    width: 1rem;
+  }
+
+  .nav-menu[data-start='00'] .nav-menu-item::before {
+    content: '0' counter(nav-menu-counter);
+  }
+
+  /**
+  * li elements within nav-sub-menu elements
+  */
+  .nav-sub-menu-item {
+    counter-increment: nav-sub-menu-counter;
+  }
+
+  .nav-sub-menu .nav-sub-menu-item::before {
+    content: counter(nav-menu-counter) '.' counter(nav-sub-menu-counter);
+    width: 1rem;
+    margin-inline-end: 0.5rem;
+  }
+
+  .nav-menu[data-start='00'] .nav-sub .nav-sub-menu .nav-sub-menu-item::before {
+    content: '0' counter(nav-menu-counter) '.0' counter(nav-sub-menu-counter);
+  }
+
+  .nav-menu-item:hover,
+  .nav-menu-item:hover a,
+  .nav-sub-menu-item:hover,
+  .nav-sub-menu-item:hover a {
+    background: var(--color-body);
+    color: var(--color-background);
+  }
+
+  .nav-menu-item:focus-visible,
+  .nav-menu-item:focus-visible a,
+  .nav-menu-item:focus-within,
+  .nav-menu-item:focus-within a,
+  .nav-sub-menu-item:focus-visible,
+  .nav-sub-menu-item:focus-visible a,
+  .nav-sub-menu-item:focus-within,
+  .nav-sub-menu-item:focus-within a {
+    background: var(--color-body);
+    color: var(--color-background);
+  }
+  .nav-menu-item a,
+  .nav-sub-menu-item a {
+    outline-offset: unset;
   }
 </style>

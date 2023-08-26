@@ -5,25 +5,35 @@
   --font-serif: "IBM Plex Serif", Charter, Bitstream Charter, Sitka Text, Cambria, serif;
   --font-body: var(--font-serif);
 
-  --green-2: hsl(149 39% 58%);
+  --blue-0: #041115;
+  --blue-9: #0d3340;
+  --blue-8: #15556b;
+  --blue-7: #1d7795;
+  --blue-6: #2698c0;
+  --blue-5: #3fb2d9;
+  --blue-4: #6ac3e2;
+  --blue-3: #94d4ea;
+  --blue-2: #bfe5f2;
+  --blue-1: #eaf6fb;
 
-  --green-5: #000a04;
-  --green-4: #39724f;
-  --green-3: #509e6e;
-  --green-2: #6BBF8B;
-  --green-1: #8ddeac;
 
-  --red-5: #2d0c06;
-  --red-4: #c9503a;
-  --red-3: #ff6347;
-  --red-2: #fc816b;
-  --red-1: #ffa494;
+  --orange-0: #1a0600;
+  --orange-9: #4d1300;
+  --orange-8: #802000;
+  --orange-7: #b32d00;
+  --orange-6: #e63900;
+  --orange-5: #ff531a;
+  --orange-4: #ff794d;
+  --orange-3: #ff9f80;
+  --orange-2: #ffc6b3;
+  --orange-1: #ffece5;
+
   /*colors*/
-  --color-body: var(--green-1);
-  --color-heading: var(--green-2);
-  --color-link: var(--green-1);
-  --color-hover: var(--red-3);
-  --color-background: var(--green-5);
+  --color-body: var(--blue-2);
+  --color-heading: var(--blue-2);
+  --color-link: var(--blue-2);
+  --color-hover: var(--blue-1);
+  --color-background: var(--blue-0);
 }
 
 *,
@@ -75,4 +85,14 @@ a {
 a:hover {
   background-color: var(--color-link);
   color: var(--color-background);
+}
+
+a:focus {
+  outline: 1px solid var(--color-link);
+  outline-offset: 0.125em;
+}
+
+header a:hover {
+  color: var(--color-link);
+  background-color: transparent;
 }
