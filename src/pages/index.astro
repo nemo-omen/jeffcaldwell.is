@@ -14,9 +14,10 @@ import Card from '../components/Card.astro';
   </header>
   <main>
     <aside class="sidebar">
-      <nav id="main-nav" aria-labelledby="main-nav-label">
+      <nav id="main-nav" aria-label="Main">
+        <!-- <nav id="main-nav" aria-labelledby="main-nav-label"> -->
         <ol class="main-nav-list">
-          <label class="menu-label" id="main-nav-label"> Main Menu</label>
+          <!-- <label class="menu-label" id="main-nav-label"> Main Menu</label> -->
           <li class="nav-menu-list">
             <a href="#"> 00-10 Information</a>
             <ol class="nav-menu" aria-describedby="meta-nav-label" data-start="00">
@@ -48,10 +49,9 @@ import Card from '../components/Card.astro';
               <li class="nav-menu-item"><a href="#">Technical Writing</a></li>
               <li class="nav-sub">
                 <ol class="nav-sub-menu">
-                  <li class="nav-sub-menu-item"><a href="#">Documentation</a></li>
                   <li class="nav-sub-menu-item"><a href="#">Proposals</a></li>
                   <li class="nav-sub-menu-item"><a href="#">Research</a></li>
-                  <li class="nav-sub-menu-item"><a href="#">Journalism</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Documentation</a></li>
                 </ol>
               </li>
               <li class="nav-menu-item"><a href="#">Personal Writing</a></li>
@@ -109,35 +109,18 @@ import Card from '../components/Card.astro';
     position: relative;
     margin-block: var(--size-4);
     padding: 0;
-    border: 1px solid var(--color-body);
-    border-inline-start: none;
-    border-block-end: none;
+    /* border: 1px solid var(--color-body); */
+    border-inline-end: 2px solid var(--blue-9);
+    /* border-inline-start: none;
+    border-block-start: none; */
   }
-
-  #main-nav::before,
-  #main-nav::after {
-    content: '';
-    width: 0.25rem;
-    background-color: var(--color-background);
-    position: absolute;
-    top: var(--size-2);
-    bottom: var(--size-2);
-  }
-
-  #main-nav::before {
-    left: -0.25rem;
-  }
-
-  /* #main-nav::after {
-    right: -0.25rem;
-  } */
 
   .menu-label {
     position: absolute;
     display: inline-block;
-    padding-inline-end: var(--size-2);
-    /* margin-inline: var(--size-2); */
+    padding-inline: var(--size-2);
     background-color: var(--color-background);
+    border: 1px solid var(--color-body);
     top: -0.75rem;
   }
 
@@ -160,20 +143,16 @@ import Card from '../components/Card.astro';
 
   .main-nav-list {
     margin-block-start: var(--size-2);
-    margin-block-end: var(--size-3);
-  }
-
-  .main-nav-list > li {
-    /* padding-inline: var(--size-3); */
+    /* margin-block-end: var(--size-3); */
   }
 
   .main-nav-list > li > a {
     display: block;
   }
 
-  .main-nav-list > * + * {
+  /* .main-nav-list > * + * {
     margin-block-start: var(--size-2);
-  }
+  } */
 
   .nav-sub {
     padding: 0;
@@ -185,7 +164,8 @@ import Card from '../components/Card.astro';
   .nav-menu {
     border-top: none;
     position: relative;
-    padding-block-start: var(--size-2);
+    /* padding-block-start: var(--size-2); */
+    display: flex;
   }
 
   .nav-menu[data-start='00'] {
@@ -200,8 +180,13 @@ import Card from '../components/Card.astro';
     counter-reset: nav-menu-counter 19;
   }
 
+  li a {
+    padding-block-start: var(--size-1);
+  }
+
   .nav-menu-list > a {
     font-weight: 500;
+    padding-inline-start: var(--size-1);
   }
 
   /**
@@ -215,6 +200,7 @@ import Card from '../components/Card.astro';
   .nav-sub .nav-sub-menu .nav-sub-menu-item {
     padding-inline-start: 3.75rem;
     display: flex;
+    align-items: baseline;
     gap: var(--size-6);
   }
 
@@ -234,8 +220,8 @@ import Card from '../components/Card.astro';
   */
   .nav-menu-item {
     display: flex;
+    align-items: baseline;
     counter-increment: nav-menu-counter;
-    margin-block-end: var(--size-2);
     padding-inline-start: var(--size-7);
   }
 
