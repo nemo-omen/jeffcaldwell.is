@@ -18,38 +18,56 @@ import Card from '../components/Card.astro';
         <ol class="main-nav-list">
           <label class="menu-label" id="main-nav-label"> Main Menu</label>
           <li class="nav-menu-list">
-            <a href="#"> 00-10 Personal</a>
+            <a href="#"> 00-10 Information</a>
             <ol class="nav-menu" aria-describedby="meta-nav-label" data-start="00">
-              <li class="nav-menu-item"><a href="#">About</a></li>
+              <li class="nav-menu-item"><a href="#">Professional</a></li>
+              <li class="nav-sub">
+                <ol class="nav-sub-menu">
+                  <li class="nav-sub-menu-item"><a href="#">Resume</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">LinkedIn</a></li>
+                </ol>
+              </li>
+              <li class="nav-menu-item"><a href="#">Personal</a></li>
               <li class="nav-sub">
                 <ol class="nav-sub-menu">
                   <li class="nav-sub-menu-item"><a href="#">About Jeff</a></li>
-                  <li class="nav-sub-menu-item"><a href="#">Timeline</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Mastodon</a></li>
                 </ol>
               </li>
-              <li class="nav-menu-item"><a href="#">Three</a></li>
+              <li class="nav-menu-item"><a href="#">Misc</a></li>
+              <li class="nav-sub">
+                <ol class="nav-sub-menu">
+                  <li class="nav-sub-menu-item"><a href="#">Why the numbers?</a></li>
+                </ol>
+              </li>
             </ol>
           </li>
           <li class="nav-menu-list">
             <a href="#"> 10-19 Writing</a>
             <ol class="nav-menu" aria-describedby="writing-nav-label" data-start="10">
-              <li class="nav-menu-item"><a href="#">One</a></li>
+              <li class="nav-menu-item"><a href="#">Technical Writing</a></li>
               <li class="nav-sub">
                 <ol class="nav-sub-menu">
-                  <li class="nav-sub-menu-item"><a href="#">About Jeff</a></li>
-                  <li class="nav-sub-menu-item"><a href="#">Timeline</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Documentation</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Proposals</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Research</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Journalism</a></li>
                 </ol>
               </li>
-              <li class="nav-menu-item"><a href="#">Two</a></li>
-              <li class="nav-menu-item"><a href="#">Three</a></li>
+              <li class="nav-menu-item"><a href="#">Personal Writing</a></li>
+              <li class="nav-sub">
+                <ol class="nav-sub-menu">
+                  <li class="nav-sub-menu-item"><a href="#">Blog</a></li>
+                  <li class="nav-sub-menu-item"><a href="#">Fun</a></li>
+                </ol>
+              </li>
             </ol>
           </li>
           <li class="nav-menu-list">
-            <a href="#">20-29 Dev</a>
+            <a href="#">20-29 Software & Web Dev</a>
             <ol class="nav-menu" aria-describedby="dev-nav-label" data-start="20">
               <li class="nav-menu-item"><a href="#">Projects</a></li>
-              <li class="nav-menu-item"><a href="#">Two</a></li>
-              <li class="nav-menu-item"><a href="#">Three</a></li>
+              <li class="nav-menu-item"><a href="#">Sites</a></li>
             </ol>
           </li>
         </ol>
@@ -92,6 +110,8 @@ import Card from '../components/Card.astro';
     margin-block: var(--size-4);
     padding: 0;
     border: 1px solid var(--color-body);
+    border-inline-start: none;
+    border-block-end: none;
   }
 
   #main-nav::before,
@@ -108,15 +128,15 @@ import Card from '../components/Card.astro';
     left: -0.25rem;
   }
 
-  #main-nav::after {
+  /* #main-nav::after {
     right: -0.25rem;
-  }
+  } */
 
   .menu-label {
     position: absolute;
     display: inline-block;
-    padding-inline: var(--size-2);
-    margin-inline: var(--size-2);
+    padding-inline-end: var(--size-2);
+    /* margin-inline: var(--size-2); */
     background-color: var(--color-background);
     top: -0.75rem;
   }
@@ -133,13 +153,18 @@ import Card from '../components/Card.astro';
     margin: 0;
   }
 
+  ol li a {
+    display: block;
+    width: 100%;
+  }
+
   .main-nav-list {
     margin-block-start: var(--size-2);
     margin-block-end: var(--size-3);
   }
 
   .main-nav-list > li {
-    padding-inline: var(--size-3);
+    /* padding-inline: var(--size-3); */
   }
 
   .main-nav-list > li > a {
@@ -175,6 +200,10 @@ import Card from '../components/Card.astro';
     counter-reset: nav-menu-counter 19;
   }
 
+  .nav-menu-list > a {
+    font-weight: 500;
+  }
+
   /**
   * Nested nav menus
   */
@@ -185,6 +214,8 @@ import Card from '../components/Card.astro';
 
   .nav-sub .nav-sub-menu .nav-sub-menu-item {
     padding-inline-start: 3.75rem;
+    display: flex;
+    gap: var(--size-6);
   }
 
   .nav-sub-menu-item a {
@@ -202,9 +233,10 @@ import Card from '../components/Card.astro';
   * li elements within nav-menu elements
   */
   .nav-menu-item {
+    display: flex;
     counter-increment: nav-menu-counter;
     margin-block-end: var(--size-2);
-    padding-inline: var(--size-7);
+    padding-inline-start: var(--size-7);
   }
 
   .nav-menu .nav-menu-item::before {
@@ -232,6 +264,12 @@ import Card from '../components/Card.astro';
 
   .nav-menu[data-start='00'] .nav-sub .nav-sub-menu .nav-sub-menu-item::before {
     content: '0' counter(nav-menu-counter) '.0' counter(nav-sub-menu-counter);
+  }
+
+  .nav-menu[data-start='10'] .nav-sub .nav-sub-menu .nav-sub-menu-item::before,
+  .nav-menu[data-start='10'] .nav-sub .nav-sub-menu .nav-sub-menu-item::before,
+  .nav-menu[data-start='20'] .nav-sub .nav-sub-menu .nav-sub-menu-item::before {
+    content: counter(nav-menu-counter) '.0' counter(nav-sub-menu-counter);
   }
 
   .nav-menu-item:hover,

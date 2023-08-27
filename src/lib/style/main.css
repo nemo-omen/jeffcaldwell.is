@@ -34,6 +34,8 @@
   --color-link: var(--blue-2);
   --color-hover: var(--blue-1);
   --color-background: var(--blue-0);
+
+  /* --transition-default: 200ms ease-in-out; */
 }
 
 *,
@@ -80,6 +82,7 @@ a {
   text-underline-offset: 0.25em;
   text-decoration-thickness: 0.125em;
   padding-inline: 0.125em;
+  /* transition: all var(--transition-default); */
 }
 
 a:hover {
@@ -88,11 +91,20 @@ a:hover {
 }
 
 a:focus {
-  outline: 1px solid var(--color-link);
-  outline-offset: 0.125em;
+  outline: 1px solid transparent;
+  /* outline-offset: -0.5em; */
+  background-color: var(--color-body);
+  color: var(--color-background);
 }
 
 header a:hover {
   color: var(--color-link);
   background-color: transparent;
+}
+
+header a:focus {
+  outline: 1px solid var(--color-body);
+  background-color: transparent;
+  color: var(--color-body);
+  outline-offset: 0.25em;
 }
