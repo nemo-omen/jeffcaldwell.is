@@ -4,11 +4,13 @@ import Base from '../../layouts/Base.astro';
 import PostPreview from '../../components/PostPreview.astro';
 
 const allPosts = await getCollection('blog');
-
+const prod = import.meta.env.PROD;
 // Sort allPosts and grab the first 5
-const sorted = allPosts.sort((a, b) => {
-  return new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf();
-});
+const sorted = allPosts
+  .filter((post) => (prod ? !post.data.draft : post.data.draft || !post.data.draft))
+  .sort((a, b) => {
+    return new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf();
+  });
 
 const groupedByYear = Object.groupBy(sorted, (entry) => new Date(entry.data.published).getFullYear());
 ---

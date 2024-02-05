@@ -10,9 +10,13 @@ const isBlogPath = current.startsWith('/blog');
 
     <nav aria-label="Main Menu">
       <ul>
-        <li><a href="/" class={current === '/' ? 'current nav-link' : 'nav-link'}>Home</a></li>
+        <li>
+          <a href="/" class={current === '/' ? 'current nav-link' : 'nav-link'}>Home</a>
+        </li>
         <li><a href="/blog" class={isBlogPath ? 'current nav-link' : 'nav-link'}>Blog</a></li>
-        <li><a href="/about" class={current === '/about' ? 'current nav-link' : 'nav-link'}>About</a></li>
+        <li>
+          <a href="/about" class={current === '/about' ? 'current nav-link' : 'nav-link'}>About</a>
+        </li>
       </ul>
     </nav>
   </div>
