@@ -1,9 +1,12 @@
 :root {
   --dark: #010d15;
-  --light: #fffbe5;
+  --light: #f3faff;
   --primary: #FFEB47;
   --secondary: #2da4f4;
   --tertiary: #ff6347;
+
+
+  --dark-1: color-mix(in srgb, #010d15, #f3faff 90%);
 
   --sans: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
   --serif: font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
@@ -85,6 +88,30 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-m-l);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-1) var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  max-width: 0.5rem;
+  max-height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-1);
+  border-radius: 0.25rem;
 }
 
 a:not([class], [id]) {
