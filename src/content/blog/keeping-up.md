@@ -1,6 +1,12 @@
 ---
 title: Keeping Up
 published: 2024-02-04 17:51:38
+draft: true
+summary: Big shifts away from social media and toward a more personal, independent web are underway. Does that mean a return to old tools or a need for something else?
+tags:
+  - RSS
+  - Social Web
+  - The Old Web
 ---
 
 Major upheavals in in the way we interact with the web have been in the wind for the past year or so, kicked off by Elon Musk's takeover of Twitter and the subsequent invasion of Nazis and generally reprehensible shitheads over there. Initially his takeover prompted a mass-migration of reasonable people away from that site to alternatives like Mastodon, and then Bluesky or Threads.
