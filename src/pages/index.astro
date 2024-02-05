@@ -4,15 +4,18 @@ import Base from '../layouts/Base.astro';
 import PostPreview from '../components/PostPreview.astro';
 
 const allPosts = await getCollection('blog');
-const sorted = allPosts.sort((a, b) => {
-  return new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf();
-});
+
+// Sort allPosts and grab the first 5
+const sorted = allPosts
+  .sort((a, b) => {
+    return new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf();
+  })
+  .slice(0, 5);
 ---
 
 <Base title="Jeff Caldwell">
-  <main>
-    <section class="post-list content-container">
-      {sorted.map((entry) => <PostPreview {entry} />)}
-    </section>
-  </main>
+  <section class="post-list content-container">
+    <h2>Latest Posts</h2>
+    {sorted.map((entry) => <PostPreview {entry} headingLevel={3} />)}
+  </section>
 </Base>

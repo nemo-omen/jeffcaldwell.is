@@ -1,11 +1,12 @@
 ---
-const { entry } = Astro.props;
+import PostPreviewHeading from './PostPreviewHeading.astro';
+const { entry, headingLevel } = Astro.props;
 ---
 
-<article class="post post-preview">
-  <h2>
+<article class="post-preview">
+  <PostPreviewHeading level={headingLevel}>
     <a href={`/blog/${entry.slug}`}>{entry.data.title}</a>
-  </h2>
+  </PostPreviewHeading>
   <time datetime={entry.data.published.toISOString()}>
     {
       new Date(entry.data.published).toLocaleDateString('en-US', {

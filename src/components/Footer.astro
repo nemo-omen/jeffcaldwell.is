@@ -1,0 +1,37 @@
+---
+import IconLink from './IconLink.astro';
+const startDate = new Date('2024-02-05');
+const currentDate = new Date(Date.now());
+const startYear = startDate.getFullYear();
+const endYear = currentDate.getFullYear();
+
+let dateString: string = endYear > startYear ? `${startYear.toString()} - ${endYear.toString()}` : endYear.toString();
+---
+
+<footer>
+  <div class="footer-inner content-container">
+    <span class="copyright">&copy; {dateString}, Jeff Caldwell</span>
+    <nav aria-label="Footer Menu">
+      <ul>
+        <li>
+          <IconLink
+            rel="me"
+            href="https://hachyderm.io/@trainingmontage"
+            name="mastodon"
+            label="Jeff on Mastodon"
+            target="_blank"
+          />
+        </li>
+        <li>
+          <IconLink
+            rel="me"
+            href="https://www.linkedin.com/in/jeff-d-caldwell/"
+            name="linkedin"
+            label="Jeff on LinkedIn"
+            target="_blank"
+          />
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

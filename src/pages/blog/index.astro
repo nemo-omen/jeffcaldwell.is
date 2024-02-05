@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostPreview from '../../components/PostPreview.astro';
+
+const allPosts = await getCollection('blog');
+
+// Sort allPosts and grab the first 5
+const sorted = allPosts.sort((a, b) => {
+  return new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf();
+});
+
+const groupedByYear = Object.groupBy(sorted, (entry) => new Date(entry.data.published).getFullYear());
+---
+
+<Base title="Blog">
+  <section class="post-list content-container">
+    <h2>Blog</h2>
+    <!-- 
+      Check whether we've been posting for more than a year.
+      If so, map each key of groupedByYear, add the year as a
+      heading, and map through each year's values to render the
+      post previews forr that year.
+      Otherwise, just render each post preview.
+    -->
+    {
+      Object.keys(groupedByYear).length > 1
+        ? Object.keys(groupedByYear).map((year, i) => {
+            return (
+              <>
+                <h3 class="highlight">{year}</h3>
+                {groupedByYear[String(year)].map((entry) => {
+                  return <PostPreview {entry} headingLevel={4} />;
+                })}
+              </>
+            );
+          })
+        : sorted.map((entry) => <PostPreview {entry} headingLevel={3} />)
+    }
+  </section>
+</Base>

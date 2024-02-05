@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+const { label, href, target, rel, name } = Astro.props;
+---
+
+<a href={href} title={label} rel={rel} target={target}>
+  <Icon name={name} />
+  <span class="sr-only">{label}</span>
+</a>
