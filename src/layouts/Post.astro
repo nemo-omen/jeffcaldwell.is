@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title}>
+  <section class="post content-container">
+    <h1>{frontmatter.title}</h1>
+    <time datetime={frontmatter.published.toISOString()}>
+      {
+        new Date(frontmatter.published).toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        })
+      }
+    </time>
+    <slot />
+  </section>
+</Base>

@@ -1,0 +1,22 @@
+---
+const { entry } = Astro.props;
+---
+
+<article class="post post-preview">
+  <h2>
+    <a href={`/blog/${entry.slug}`}>{entry.data.title}</a>
+  </h2>
+  <time datetime={entry.data.published.toISOString()}>
+    {
+      new Date(entry.data.published).toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    }
+  </time>
+  <p>
+    {entry.body.substring(0, 256)}
+  </p>
+</article>
