@@ -1,0 +1,40 @@
+---
+const { date, lang, format } = Astro.props;
+
+function makeDateString() {
+  const realDate = new Date(date);
+  const dateLang = lang ? lang : 'en-US';
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  };
+
+  if (!format || format === 'long') {
+    return realDate.toLocaleDateString(lang, dateOptions);
+  }
+
+  if (format === 'med') {
+    const { weekday, ...opts } = dateOptions;
+    return realDate.toLocaleDateString(lang, opts);
+  }
+
+  if (format === 'numeric') {
+    const { weekday, ...opts } = dateOptions;
+    opts.month = 'numeric';
+    opts.day = 'numeric';
+    opts.year = 'numeric';
+    return realDate.toLocaleDateString(lang, opts);
+  }
+
+  // no format options passed, do the default for given lang
+  return realDate.toLocaleDateString(lang);
+}
+
+const dateString = makeDateString();
+---
+
+<time datetime={date.toISOString()}>
+  {dateString}
+</time>

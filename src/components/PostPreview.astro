@@ -1,5 +1,6 @@
 ---
 import PostPreviewHeading from './PostPreviewHeading.astro';
+import FormattedDate from './FormattedDate.astro';
 const { entry, headingLevel } = Astro.props;
 ---
 
@@ -7,16 +8,7 @@ const { entry, headingLevel } = Astro.props;
   <PostPreviewHeading level={headingLevel}>
     <a href={`/blog/${entry.slug}`}>{entry.data.title}</a>
   </PostPreviewHeading>
-  <time datetime={entry.data.published.toISOString()}>
-    {
-      new Date(entry.data.published).toLocaleDateString('en-US', {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    }
-  </time>
+  <FormattedDate date={entry.data.published} lang="en-US" format="med" />
   <p>
     {entry.data.summary}
   </p>
