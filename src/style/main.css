@@ -315,3 +315,11 @@ footer {
   /* color: var(--background); */
   padding: var(--space-3xs);
 }
+
+.note {
+  padding-inline: var(--space-s);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  font-style: italic;
+  background: color-mix(in srgb, var(--light) 2%, var(--dark));
+}
