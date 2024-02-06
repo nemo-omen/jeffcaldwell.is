@@ -16,6 +16,7 @@ const { frontmatter } = Astro.props;
         })
       }
     </time>
+    <p class="lede">{frontmatter.summary}</p>
     <slot />
   </section>
 </Base>
